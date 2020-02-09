@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button, View } from 'react-native';
+import styles from './Styles'
 
 function QuestionsPage({ navigation }) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.center}>
         <Button onPress={() => navigation.goBack()} title="Go Back (Current: Questions Page)" />
         <Button onPress={() => navigation.toggleDrawer()} title="Toggle" />
       </View>
