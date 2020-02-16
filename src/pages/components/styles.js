@@ -15,6 +15,24 @@ const styles = StyleSheet.create({
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center',
+    },
+    card: {
+      flex:1,
+    },
+    stretch: {
+      height: 500,
+      resizeMode: 'contain',
+      backgroundColor: 'grey'
+    },
+    resizeImage: {
+      flex: 3,
+      resizeMode: "contain"
+    },
+    title: {
+      fontWeight: 'bold',
+    },
+    subtitle: {
+      fontSize: 12
     }
   });
  
