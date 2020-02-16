@@ -29,7 +29,7 @@ function CommunityPage({ navigation }) {
 
             <Card.Content>
               <Title style={styles.title}>{item.title}</Title>
-              <Paragraph style={styles.subtitle}>Posted by {item.poster_firstName} {item.poster_lastName}</Paragraph>
+              <Paragraph style={styles.subtitle}>Posted by {item.poster_firstName} {item.poster_lastName} on {item.date_posted}</Paragraph>
               <Paragraph>{item.text}</Paragraph>
             </Card.Content>
             <SingleImage 
