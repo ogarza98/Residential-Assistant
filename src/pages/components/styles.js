@@ -31,6 +31,11 @@ const styles = StyleSheet.create({
     title: {
       fontWeight: 'bold',
     },
+    profile_title: {
+      fontWeight: 'bold',
+      fontSize: 20,
+      paddingBottom: 20
+    },
     subtitle: {
       fontSize: 12
     },
