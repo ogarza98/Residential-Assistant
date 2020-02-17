@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
       flex:1,
     },
     stretch: {
-      height: 500,
-      resizeMode: 'contain',
+      height: 350,
+      resizeMode: 'cover',
       backgroundColor: 'grey'
     },
     resizeImage: {
