@@ -28,14 +28,14 @@ function CommunityPage({ navigation }) {
             <Divider style={{height: 1.5, backgroundColor: '#c6cbcd' }}/>
 
             <Card.Content>
-            <View style={{flex: 1, flexDirection: 'row', paddingTop: 10}}>
-            <Avatar.Image size={35} source={{ uri: 'https://www.w3schools.com/howto/img_avatar.png' }} />
+            <View style={styles.row}>
+            <Avatar.Image size={35} source={{ uri: item.avatar}} />
             {/* <Avatar.Text size={35} label="OG" />  */}
                 <Title> {item.title}
                 </Title>
               </View>
               <Paragraph style={styles.subtitle}>Posted by {item.poster_firstName} {item.poster_lastName} on {item.date_posted}</Paragraph>
-              <Paragraph>{item.text}</Paragraph>
+              <Paragraph style={styles.paragraph}>{item.text}</Paragraph>
             </Card.Content>
             <SingleImage 
                 uri={item.photoUrl}

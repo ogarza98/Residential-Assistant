@@ -33,6 +33,14 @@ const styles = StyleSheet.create({
     },
     subtitle: {
       fontSize: 12
+    },
+    row: {
+      flex: 1, 
+      flexDirection: 'row', 
+      paddingTop: 10
+    },
+    paragraph: {
+      paddingBottom: 10
     }
   });
  
