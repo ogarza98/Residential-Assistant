@@ -44,8 +44,21 @@ const styles = StyleSheet.create({
       flexDirection: 'row', 
       paddingTop: 10
     },
+    post_row: {
+      flex: 1,
+      flexDirection: 'row', 
+    },
     paragraph: {
       paddingBottom: 10
+    },
+    post_action: {
+      flex: 1, 
+      height: 30, 
+      backgroundColor: 'white', 
+      paddingTop: 4,
+      flexDirection: 'row',
+      alignItems: 'center', 
+      justifyContent: 'center', 
     }
   });
  
