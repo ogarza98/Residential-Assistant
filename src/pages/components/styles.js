@@ -59,7 +59,24 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center', 
       justifyContent: 'center', 
-    }
+    },
+    login_container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      justifyContent: 'center',
+      alignContent: 'center',
+    },
+    buttonStyle: {
+      margin:25,
+      padding: 15,
+      backgroundColor: '#1FA9FF',
+      borderRadius:5
+      },
+      textStyle: {
+        fontSize:20,
+      color: '#ffffff',
+      textAlign: 'center'
+      }
   });
  
 export default styles

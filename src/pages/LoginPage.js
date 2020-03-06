@@ -1,8 +1,12 @@
 // Login.js
 import React from 'react'
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import * as firebase from "firebase";
-import { Container, Item, Form, Input, Button, Label } from "native-base";
+import { Container, Item, Form, Input, Button, Label, Title } from "native-base";
+import styles from './components/styles';
+import { Header, Icon} from 'react-native-elements';
+
+
 export default class LoginPage extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +27,13 @@ export default class LoginPage extends React.Component {
       };
       render() {
         return (
-          <Container>
+          <View style={styles.container}>
+            <Header
+            centerComponent={{ text: 'Welcome', style: { color: '#fff', fontWeight: 'bold' } }}
+            rightComponent={{ icon: 'help', color: '#fff'}}/>
+            <View style={styles.login_container}>
+
+            <Title> UTSA's Residential Assistant</Title>
             <Form>
             <Item floatingLabel>
                 <Label>Email</Label>
@@ -42,23 +52,15 @@ export default class LoginPage extends React.Component {
                   onChangeText={password => this.setState({ password })}
                 />
               </Item>
-              <Button onPress={() => this.LogIn(this.state.email, this.state.password)}
-                full rounded success>
-                <Text>Login</Text>
-              </Button>
     
             </Form>
-          </Container>
+
+            <TouchableOpacity style={styles.buttonStyle} onPress={() => this.LogIn(this.state.email, this.state.password)} >
+                <Text style={styles.textStyle} >Login</Text>
+              </TouchableOpacity>
+          </View>
+          </View>
         );
       }
     }
-    
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-    });
     
