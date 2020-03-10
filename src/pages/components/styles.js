@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
-  
+
 const styles = StyleSheet.create({
+    
     container: {
       flex: 1,
     },
@@ -8,14 +9,83 @@ const styles = StyleSheet.create({
       fontSize: 19,
       fontWeight: 'bold',
     },
+    faqquestion: {
+      maxWidth: 768,
+      justifyContent: 'flex-start',
+      fontSize: 18,
+      flexDirection: 'column',
+      padding: 15,
+      fontWeight: 'bold',
+      paddingRight: 60,
+    },
+    faqquestionopen: {
+      maxWidth: 768,
+      justifyContent: 'flex-start',
+      fontSize: 18,
+      flexDirection: 'column',
+      padding: 15,
+      fontWeight: 'bold',
+      paddingRight: 60
+    },
+    faqanswerold: {
+      maxHeight: 1000,
+      padding: 15
+    },
+    imagestyle: {
+      marginTop: -58,
+      marginBottom: 30,
+      marginLeft: 337,
+      maxHeight: 25,
+      maxWidth: 25,
+    },
+    imagestyleopen: {
+      marginTop: -58,
+      marginBottom: 30,
+      marginLeft: 337,
+      maxHeight: 25,
+      maxWidth: 25,
+      transform: [{ rotate: '180deg' }]
+    },
+    faqanswer: {
+      maxHeight: 0,
+      opacity: 0,
+      overflow: 'hidden'
+    },
+    faqansweropen: {
+      maxHeight:1000,
+      opacity: 1,
+      backgroundColor: '#C8F2FF',
+      padding: 15,
+    },
     activeTitle: {
       color: 'red',
     },
     center: {
         flex: 1, 
+        flexDirection: 'row',
         alignItems: 'center', 
         justifyContent: 'center',
+    },
+    faqs: {
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      maxWidth: 768,
+      padding: 2,
+      margin: 10
+    },
+    faq:{
+      justifyContent: 'flex-start',
+      flexDirection: 'column',
+      backgroundColor: '#FFF',
+      borderRadius: 0,
+      shadowColor: '#000000',
+      shadowOffset: {
+      width: 0,
+      height: 5
+    },
+      shadowRadius: 5,
+      shadowOpacity: 1.0
     }
+
   });
- 
 export default styles

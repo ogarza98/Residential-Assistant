@@ -1,21 +1,24 @@
 import * as React from 'react';
-import { Button, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
+import QuestionsIndex from './components/QuestionsIndex';
+
 
 function QuestionsPage({ navigation }) {
     return (
+      
       <View style={styles.container}>
          <Header
         leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
-        centerComponent={{ text: 'FAQ Page', style: { color: '#fff' } }}
+        centerComponent={{ text: 'FAQs', style: { color: '#fff', fontSize: 25, flex: 1, fontWeight: 'bold' } }}
         rightComponent={{ icon: 'notifications', color: '#fff', onPress: () => navigation.navigate('Notifications') }}
         />
-        <View style={styles.center}>
-          <Button onPress={() => navigation.goBack()} title="Go Back (Current: Questions Page)" />
-          <Button onPress={() => navigation.toggleDrawer()} title="Toggle" />
-        </View>
+        <ScrollView>
+            <QuestionsIndex/>
+        </ScrollView>
       </View>
+     
     );
   }
 
