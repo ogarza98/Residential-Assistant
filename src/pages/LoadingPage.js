@@ -7,7 +7,8 @@ import styles from './components/styles';
 export default class Loading extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Community' : 'Login')
+      this.props.navigation.navigate(user ? 'Home' : 'Login')
+      
     })
   }
   render() {
