@@ -10,6 +10,8 @@ import NotificationPage from './pages/NotificationPage';
 import ProfilePage from './pages/ProfilePage';
 import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
+import LogoutPage from './pages/LogoutPage';
+
 import * as firebase from "firebase";
 
 
@@ -40,6 +42,7 @@ function Home() {
       <Drawer.Screen name="Notifications" component={NotificationPage} />
       <Drawer.Screen name="Forms" component={FormPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
+      <Drawer.Screen name="Logout" component={LogoutPage} />
 
     </Drawer.Navigator>
     
@@ -50,9 +53,9 @@ export default function App() {
   return (
 
     <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator headerMode="none">
       <Stack.Screen name="Loading" component={LoadingPage} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Home}/>
       <Stack.Screen name="Login" component={LoginPage} />
     </Stack.Navigator>
     </NavigationContainer>
