@@ -11,33 +11,33 @@ export default class ProfilePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: false,
-      userData: null
+      items: null,
    }
-   this.searchedText = ""
-   this.localData=null;
   }
   
   componentDidMount() {
     // firebase.database().ref('users/').once('value', function (snapshot) {
     //     console.log(snapshot.val())
     // });
-    console.log(firebase.auth().currentUser.uid);
+    console.log('uid', firebase.auth().currentUser.uid);
 
     var my_uid = firebase.auth().currentUser.uid;
 
-    firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
-      console.log(snapshot.val());
+    let self = this;
 
+    firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
+      const userItem = snapshot.val();
+      let items = Object.values(userItem);
+      self.setState({ items: items });
     });
 
 }
-
   render() {
+    console.log('item', this.state.items)
     return (
       <View style={styles.login_container}>
         <ActivityIndicator size="large" />
-        <Text>{this.state.userData}</Text>
+        <Text>{this.state.items}</Text>
       </View>
     )
   }
