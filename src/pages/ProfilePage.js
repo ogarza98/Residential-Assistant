@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
 
 
 
@@ -12,13 +12,11 @@ export default class ProfilePage extends React.Component {
     super(props)
     this.state = {
       items: null,
+      isLoaded: false,
    }
   }
   
   componentDidMount() {
-    // firebase.database().ref('users/').once('value', function (snapshot) {
-    //     console.log(snapshot.val())
-    // });
     console.log('uid', firebase.auth().currentUser.uid);
 
     var my_uid = firebase.auth().currentUser.uid;
@@ -29,15 +27,42 @@ export default class ProfilePage extends React.Component {
       const userItem = snapshot.val();
       let items = Object.values(userItem);
       self.setState({ items: items });
+      self.setState({isLoaded: true});
     });
 
 }
+
+
   render() {
-    console.log('item', this.state.items)
+    const { isLoaded, items} = this.state;
+    // console.log('firebase array', this.state.items)
+    // const itemArray = this.state.items;
+
     return (
-      <View style={styles.login_container}>
+      isLoaded ?
+      <View style={styles.container}>
+    <Header
+      leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
+      centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
+   />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text style={styles.profile_title}>{items[2]}</Text>
+      <Image
+          style={{width: 100, height: 100, borderRadius: 400/ 2}}
+          source={{uri: items[0]}}
+        />
+        <Text style={styles.profile_title}>{items[1]}</Text>
+        <Text style={styles.profile_title}>{items[3]}</Text>
+        <Text style={styles.profile_title}>{items[4]}</Text>
+
+
+
+      </View>
+      </View>
+
+      : 
+      <View>
         <ActivityIndicator size="large" />
-        <Text>{this.state.items}</Text>
       </View>
     )
   }

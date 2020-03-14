@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
     profile_title: {
       fontWeight: 'bold',
       fontSize: 20,
-      paddingBottom: 20
+      paddingBottom: 20,
+      textTransform: 'uppercase',
+      paddingTop: 20,
     },
     subtitle: {
       fontSize: 12
