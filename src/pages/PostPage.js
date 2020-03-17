@@ -1,8 +1,13 @@
 import * as React from 'react';
 import styles from './components/styles'
-import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
+import { Header, Divider, Icon, Button} from 'react-native-elements';
+import {SingleImage} from 'react-native-zoom-lightbox';
+
+
+
 
 
 
@@ -41,7 +46,81 @@ export default class PostPage extends React.Component {
       centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <FlatList
+       keyExtractor={this.state.items.id}
+       data={this.state.items}
+       renderItem={({ item }) => (
+        <Card>
+        <Divider style={{height: 10, backgroundColor: '#DCDCDC' }}/>
+        <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
 
+        <Card.Content>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={() => {
+              
+              /* 1. Navigate to the Details route with params */
+                navigation.navigate('Profile', {
+                firstName: item.poster_firstName ,
+                lastName: item.poster_lastName,
+                avatar: item.avatar
+
+              });
+              }}>
+
+            </TouchableOpacity>
+
+              <Title> {item.title} </Title>
+
+          </View>
+
+            <Paragraph style={styles.subtitle}>Posted by {item.poster_firstName} {item.poster_lastName} on {item.date_posted}</Paragraph>
+            <Paragraph style={styles.paragraph}>{item.text}</Paragraph>
+
+        </Card.Content>
+
+          <SingleImage uri={item.photoUrl}style={styles.stretch} />
+
+          <Divider style={{height: 3, backgroundColor: 'white' }}/>
+
+          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+          
+          <View style={styles.post_row}>
+            <TouchableOpacity style = {styles.post_action}>
+              <View style={styles.post_action}>
+                <Icon name='favorite' />
+                <Text> Like</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style = {styles.post_action}>
+              <View style={styles.post_action}>
+                <Icon name='share' />
+                <Text> Share</Text>
+              </View>
+            </TouchableOpacity>
+            
+            <TouchableOpacity style = {styles.post_action}>
+              <View style={styles.post_action}>
+                <Icon name='info' />
+                <Text> Info</Text>
+              </View>
+            </TouchableOpacity>
+
+          </View>
+
+
+          
+          <Divider style={{height: 10, backgroundColor: 'white' }}/>
+          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+          <Divider style={{height: 1.5, backgroundColor: '#DCDCDC' }}/>
+
+       </Card>
+                  
+       )}
+     />
+      
       </View>
       </View>
 

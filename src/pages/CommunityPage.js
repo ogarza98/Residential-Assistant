@@ -9,6 +9,7 @@ import {SingleImage} from 'react-native-zoom-lightbox';
 function CommunityPage({ navigation }) {
 
   return(
+    
   <View style={styles.container}>
     <Header
       leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
