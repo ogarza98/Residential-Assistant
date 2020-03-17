@@ -12,6 +12,8 @@ import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
 import PostPage from './pages/PostPage';
+import GuestProfilePage from './pages/GuestProfilePage';
+
 
 import * as firebase from "firebase";
 
@@ -44,6 +46,7 @@ function Home() {
       <Drawer.Screen name="Forms" component={FormPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
       <Drawer.Screen name="Post" component={PostPage} />
+      <Drawer.Screen name="GuestProfile" component={GuestProfilePage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
 
     </Drawer.Navigator>

@@ -7,10 +7,6 @@ import { Header, Divider, Icon, Button} from 'react-native-elements';
 import {SingleImage} from 'react-native-zoom-lightbox';
 
 
-
-
-
-
 export default class PostPage extends React.Component {
 
   constructor(props) {
@@ -43,7 +39,7 @@ export default class PostPage extends React.Component {
       <View style={styles.container}>
     <Header
       leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-      centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
+      centerComponent={{ text: 'Community Page', style: { color: '#fff' } }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList
@@ -56,16 +52,17 @@ export default class PostPage extends React.Component {
 
         <Card.Content>
           <View style={styles.row}>
-            <TouchableOpacity onPress={() => {
+          <TouchableOpacity onPress={() => {
               
+              console.log(item.poster_uid);
               /* 1. Navigate to the Details route with params */
-                navigation.navigate('Profile', {
-                firstName: item.poster_firstName ,
-                lastName: item.poster_lastName,
-                avatar: item.avatar
+                this.props.navigation.navigate('GuestProfile', {
+                poster_uid: item.poster_uid ,
 
               });
               }}>
+
+              <Avatar.Image size={35} source={{ uri: item.avatar}}/>
 
             </TouchableOpacity>
 
@@ -73,7 +70,7 @@ export default class PostPage extends React.Component {
 
           </View>
 
-            <Paragraph style={styles.subtitle}>Posted by {item.poster_firstName} {item.poster_lastName} on {item.date_posted}</Paragraph>
+            <Paragraph style={styles.subtitle}>Posted by {item.poster_name} on {item.date_posted}</Paragraph>
             <Paragraph style={styles.paragraph}>{item.text}</Paragraph>
 
         </Card.Content>
