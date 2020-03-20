@@ -1,47 +1,44 @@
 import React, { useState } from 'react';
-import FAQ from './FAQ';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import s from './styles';
 import firebase from 'firebase';
 
-function QuestionsIndex() {
-    const [faqs, setfaqs]= useState([
-        {
-            id: 0,
-            question: "What is the RA-oncall phone number?",
-            answer: "210-889-0026",
-            open: false
-        },
-        {
-            id: 1,
-            question: "What is the number for the Police Department (PD)?",
-            answer: "Non-Emergency: 210-458-4242 \nEmergency: 210-458-4911 \nI really want to make a super long answer and see how it fills up the page I hope it wraps around",
-            open: false
-        },
-        {
-            id: 2,
-            question: "What is the housing front desk number?",
-            answer: "210-458-6200",
-            open: false
-        }
-    ]);
-
+function QuestionsIndex({items}) {
+    const [faqs, setfaqs]= useState([items[0],items[1],items[2]]);
     const toggleFAQ = index => {
-        setfaqs(faqs.map((faq, i) => {
+        setfaqs(faqs.map((items, i) => {
             if (i==index) {
-                faq.open = !faq.open;
+                items.open = !items.open;
             } else {
-                faq.open = false;
+                items.open = false;
             }
-            return faq;
+            return items;
         }))
     }
     return(
            
             <View style={s.faqs}>
                 
-                {faqs.map((faq, i) => (
-                    <FAQ faq={faq} index= {i} toggleFAQ={toggleFAQ}/>  
+                {faqs.map((items, id) => (
+                    <View>
+            
+                    <TouchableOpacity
+                        style={s.faq}
+                        keyExtractor={id}
+                        data = {items}
+                        onPress={() => toggleFAQ(id)}
+                    >
+                       
+                            <Text style={[items.open == true ? s.faqquestionopen : s.faqquestion]} >
+                                {items.question}
+                            </Text>
+                           
+                            <Text style = {[items.open == true ? s.faqansweropen : s.faqanswer]} >
+                                {items.answer}
+                            </Text>
+                              
+                    </TouchableOpacity>
+                </View>  
                         
                 ))}
                 

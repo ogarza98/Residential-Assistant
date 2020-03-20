@@ -27,20 +27,16 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       paddingRight: 60
     },
-    faqanswerold: {
-      maxHeight: 1000,
-      padding: 15
-    },
     imagestyle: {
-      marginTop: -58,
-      marginBottom: 30,
+      marginTop: -60,
+      marginBottom: -400,
       marginLeft: 337,
       maxHeight: 25,
       maxWidth: 25,
     },
     imagestyleopen: {
-      marginTop: -58,
-      marginBottom: 30,
+      marginTop: 30,
+      marginBottom: -300,
       marginLeft: 337,
       maxHeight: 25,
       maxWidth: 25,
