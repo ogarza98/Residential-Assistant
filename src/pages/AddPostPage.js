@@ -4,15 +4,46 @@ import * as firebase from "firebase";
 import { View, Text, ActivityIndicator, StyleSheet, Image, TextInput, TouchableHighlight, Alert } from 'react-native'
 
 let addItem = item => {
+    console.log('this sent over', item)
     firebase.database().ref('/posts').push({
-      name: item
+      name: item[0],
+      poster_uid: item[3]
     });
   };
+
+  
   
   export default class AddPostPage extends React.Component {
-    state = {
-      name: ''
-    };
+
+    constructor(props) {
+        super(props)
+        this.state = {
+          items: null,
+          isLoaded: false,
+          name: '',
+          avatar: '',
+          id: '',
+          poster_name: '',
+          poster_uid: '',
+
+       }
+      }
+
+    componentDidMount() {
+        console.log('uid', firebase.auth().currentUser.uid);
+    
+        var my_uid = firebase.auth().currentUser.uid;
+    
+        let self = this;
+    
+        firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
+          const userItem = snapshot.val();
+          let items = Object.values(userItem);
+          self.setState({ items: items });
+          self.setState({isLoaded: true});
+        });
+        
+    }
   
     handleChange = e => {
       this.setState({
@@ -20,12 +51,19 @@ let addItem = item => {
       });
     };
     handleSubmit = () => {
-      addItem(this.state.name);
+   
+      var array = [this.state.name, this.state.items[0], this.state.items[2], firebase.auth().currentUser.uid];
+      addItem(array);
       Alert.alert('Item saved successfully');
     };
   
     render() {
-      return (
+        const { isLoaded, items} = this.state;
+        console.log('firebase array', this.state.items)
+        // const itemArray = this.state.items;
+    
+        return (
+          isLoaded ?
         <View style={styles.main}>
           <Text style={styles.title}>Add Item</Text>
           <TextInput style={styles.itemInput} onChange={this.handleChange} />
@@ -37,6 +75,11 @@ let addItem = item => {
             <Text style={styles.buttonText}>Add</Text>
           </TouchableHighlight>
         </View>
+
+: 
+<View>
+  <ActivityIndicator size="large" />
+</View>
       );
     }
   }
