@@ -39,14 +39,8 @@ export default [
         photoUrl: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/university-paint-night-event-flyer-design-template-be72bff9c44b5850916ba3d4971f28d4_screen.jpg?ts=1561414684',
     },
     {
-        id: '5',
         avatar: 'https://cdn2.vectorstock.com/i/1000x1000/72/86/female-avatar-profile-icon-round-woman-face-vector-18307286.jpg',
-        poster_firstName: 'Rosa',
-        poster_lastName: 'Alvarez',
-        date_posted: '01-02-2020 01:40 AM',
-        title: 'Innocents At Risk',
-        text: 'Join us and the speaker from Innocents At Risk', 
-        photoUrl: 'https://lh3.googleusercontent.com/proxy/TmnNFOX1FlpuG0MTaAfQTCccq-af47P4k7T6VLIGaD5h67_54waVn4743Nfsnd8mFtUlHyyapDJHV6K-1HAeeqhMqHkWX0wIlc3FhVA1B35u6GuCt0-mlDBilAUDXKxtGXbL',
+       
     },
     {
         id: '6',

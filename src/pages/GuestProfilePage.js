@@ -16,18 +16,9 @@ export default class GuestProfilePage extends React.Component {
    }
   }
   
-  componentDidMount() {
+  fetchUser(my_uid) {
 
-    /* 2. Get the param */
-    const {poster_uid} = this.props.route.params;
-
-    var posterUID = JSON.stringify(poster_uid);
-
-    var PosterUIDString = new String();
-
-    PosterUIDString = posterUID.toString().replace(/"/g, "");
-
-    var my_uid = PosterUIDString;
+    console.log('test', my_uid)
 
     let self = this;
 
@@ -38,10 +29,27 @@ export default class GuestProfilePage extends React.Component {
       self.setState({isLoaded: true});
     });
 
+    return console.log('Done');
+
 }
 
-
   render() {
+    const {poster_uid} = this.props.route.params;
+
+    var posterUID = JSON.stringify(poster_uid);
+
+    var PosterUIDString = new String();
+
+    PosterUIDString = posterUID.trim();
+
+    PosterUIDString = PosterUIDString.slice(0, -1);
+
+    PosterUIDString = PosterUIDString.slice(1);
+
+    var my_uid = PosterUIDString;
+
+    this.fetchUser(my_uid);
+
     const { isLoaded, items} = this.state;
     // console.log('firebase array', this.state.items)
     // const itemArray = this.state.items;

@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
 import PostPage from './pages/PostPage';
 import GuestProfilePage from './pages/GuestProfilePage';
+import AddPostPage from './pages/AddPostPage';
 
 
 import * as firebase from "firebase";
@@ -47,6 +48,7 @@ function Home() {
       <Drawer.Screen name="Profile" component={ProfilePage} />
       <Drawer.Screen name="Post" component={PostPage} />
       <Drawer.Screen name="GuestProfile" component={GuestProfilePage} />
+      <Drawer.Screen name="AddPost" component={AddPostPage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
 
     </Drawer.Navigator>

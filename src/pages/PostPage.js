@@ -40,6 +40,7 @@ export default class PostPage extends React.Component {
     <Header
       leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
       centerComponent={{ text: 'Community Page', style: { color: '#fff' } }}
+      rightComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.navigate('AddPost') }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList
@@ -54,7 +55,7 @@ export default class PostPage extends React.Component {
           <View style={styles.row}>
           <TouchableOpacity onPress={() => {
               
-              console.log(item.poster_uid);
+              console.log(item.poster_uid, "original");
               /* 1. Navigate to the Details route with params */
                 this.props.navigation.navigate('GuestProfile', {
                 poster_uid: item.poster_uid ,
