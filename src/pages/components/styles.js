@@ -53,6 +53,17 @@ const styles = StyleSheet.create({
       backgroundColor: '#C8F2FF',
       padding: 15,
     },
+    viewStyle: {
+      justifyContent: 'center',
+      flex: 1,
+      backgroundColor: 'white',
+      marginTop: Platform.OS == 'ios' ? 30 : 0,
+    },
+    searchInput: {
+      padding: 10,
+      borderColor: '#CCC',
+      borderWidth: 1
+    },
     activeTitle: {
       color: 'red',
     },

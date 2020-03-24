@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 import s from './styles';
 import firebase from 'firebase';
 
@@ -25,10 +25,9 @@ function QuestionsIndex({items}) {
                     <TouchableOpacity
                         style={s.faq}
                         keyExtractor={id}
-                        data = {items}
+                        
                         onPress={() => toggleFAQ(id)}
                     >
-                       
                             <Text style={[items.open == true ? s.faqquestionopen : s.faqquestion]} >
                                 {items.question}
                             </Text>
@@ -36,7 +35,7 @@ function QuestionsIndex({items}) {
                             <Text style = {[items.open == true ? s.faqansweropen : s.faqanswer]} >
                                 {items.answer}
                             </Text>
-                              
+                           
                     </TouchableOpacity>
                 </View>  
                         
