@@ -13,6 +13,8 @@ import LogoutPage from './pages/LogoutPage';
 import PostPage from './pages/PostPage';
 import GuestProfilePage from './pages/GuestProfilePage';
 import AddPostPage from './pages/AddPostPage';
+import LaundryPage from './pages/LaundryPage';
+import WorkOrdersPage from './pages/WorkOrdersPage';
 
 
 
@@ -33,6 +35,7 @@ var config = {
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
+
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
