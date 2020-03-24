@@ -3,7 +3,6 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator} from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import CommunityPage from './pages/CommunityPage';
 import QuestionsPage from './pages/QuestionsPage';
 import FormPage from './pages/FormPage';
 import NotificationPage from './pages/NotificationPage';
@@ -38,22 +37,28 @@ if (!firebase.apps.length) {
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+const Stack_1 = createStackNavigator();
+
+function CommunityWall() {
+  return (
+    <Stack_1.Navigator headerMode="none">
+      <Stack_1.Screen name="Post" component={PostPage} />
+      <Stack_1.Screen name="AddPost" component={AddPostPage} />
+    </Stack_1.Navigator>
+
+  );
+}
 
 function Home() {
   return (
     
     <Drawer.Navigator>
-      <Drawer.Screen name="Community" component={CommunityPage} />
+      <Drawer.Screen name="Community Wall" component={CommunityWall}/>
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
       <Drawer.Screen name="Notifications" component={NotificationPage} />
       <Drawer.Screen name="Forms" component={FormPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
-      <Drawer.Screen name="Post" component={PostPage} />
-      <Drawer.Screen name="GuestProfile" component={GuestProfilePage} />
-      <Drawer.Screen name="AddPost" component={AddPostPage} />
-      <Drawer.Screen name="ImageUploader" component={ImagePickerPage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
-
     </Drawer.Navigator>
     
   );

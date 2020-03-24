@@ -40,7 +40,7 @@ export default class PostPage extends React.Component {
     <Header
       leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
       centerComponent={{ text: 'Community Page', style: { color: '#fff' } }}
-      rightComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.navigate('AddPost') }}
+      rightComponent={{ icon: 'library-add', color: '#fff', onPress: () => this.props.navigation.navigate('AddPost') }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList

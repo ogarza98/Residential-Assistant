@@ -67,7 +67,6 @@ let addItem = item => {
         var year = new Date().getFullYear(); //Current Year
         var hours = new Date().getHours(); //Current Hours
         var min = new Date().getMinutes(); //Current Minutes
-        var sec = new Date().getSeconds(); //Current Seconds
         this.setState({
           //Setting the value of the date time
           date:
@@ -203,7 +202,11 @@ let addItem = item => {
     
         return (
           isLoaded ?
-        <View style={styles.main}>
+          <View style={styles.container}>
+          <Header
+            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
+         />
+        <View style={styles.center}>
           <Text style={styles.title}>Add Item</Text>
           <TextInput style={styles.itemInput} onChange={this.handleChangeText} />
           <TextInput style={styles.itemInput} onChange={this.handleChangeTitle} />
@@ -223,6 +226,7 @@ let addItem = item => {
           >
             <Text style={styles.buttonText}>Add</Text>
           </TouchableHighlight>
+        </View>
         </View>
 
 : 
