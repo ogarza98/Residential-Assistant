@@ -63,7 +63,7 @@ componentWillUnmount(){
       isLoaded ?
       <View style={styles.container}>
     <Header
-      leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.goBack() }}
+      leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
       centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
