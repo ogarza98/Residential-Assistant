@@ -78,6 +78,40 @@ const styles = StyleSheet.create({
         fontSize:20,
       color: '#ffffff',
       textAlign: 'center'
+      },
+      main: {
+        flex: 1,
+        padding: 30,
+        flexDirection: 'column',
+        justifyContent: 'center',
+      },
+      title_add: {
+        marginBottom: 20,
+        fontSize: 25,
+        textAlign: 'center'
+      },
+      itemInput: {
+        margin: 15,
+        height: 50,
+        borderColor: '#7a42f4',
+        borderWidth: 1
+      },
+      itemInput_text: {
+        margin: 15,
+        height: 80,
+        borderColor: '#7a42f4',
+        borderWidth: 1
+      },
+      buttonText: {
+        fontSize: 18,
+        color: '#111',
+        alignSelf: 'center'
+      },
+      button: {
+        backgroundColor: '#7a42f4',
+        padding: 10,
+        margin: 15,
+        height: 40,
       }
   });
  
