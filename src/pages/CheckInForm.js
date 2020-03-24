@@ -1,3 +1,4 @@
+//import * as React from 'react';
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button, Linking } from 'react-native'
 import * as Print from 'expo-print'
@@ -11,9 +12,12 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
-import AppContainer from '../FormsNavigation';
 
   export default class Inputs extends React.Component {
+
+   static navigationOptions = {
+      drawerLabel: () => null
+    }
 
    state = {
       initial: '',
@@ -42,12 +46,9 @@ import AppContainer from '../FormsNavigation';
       const currentDate = selectedDate || date;
       this.state.date = currentDate;
    }
-   switchForm = () => {
-     this.props.navigation.navigate('Tab2')
-   }
 
    createPDF = () => {
-      let html = "<h1 style='text-align: center;'>Housing and Residence Life</h1><br>" + "<h1 style='text-align: center;'>Check-In Form Response</h1><br>" + this.state.i_Label + this.state.initial + "<br>" + this.state.g_Label + this.state.guest_signature  + "<br>" + this.state.d_Label + this.state.date
+      let html = "<h1 style='text-align: center;'>Housing and Residence Life</h1><br>" + "<h1 style='text-align: center;'>Check-In Form Response</h1><br>" + this.state.i_Label + this.state.initial + "<br><br>" + this.state.g_Label + this.state.guest_signature  + "<br><br>" + this.state.d_Label + this.state.date
 
       Print.printToFileAsync({
          html: html,
@@ -70,10 +71,10 @@ import AppContainer from '../FormsNavigation';
         <View style={styles.container}>
           <Header
           leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-          centerComponent={{ text: 'Forms Page', style: { color: '#fff' } }}
+          centerComponent={{ text: 'Check-In Form', style: { fontSize: 20, color: '#fff' }}}
           rightComponent={{ icon: 'notifications', color: '#fff', onPress: () => this.props.navigation.navigate('Notifications') }}
           />
-          <Text style = {styles.header}>Main Page</Text>
+          {/* <Text style = {styles.header}>Check-In Form</Text> */}
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Initials"
@@ -92,12 +93,6 @@ import AppContainer from '../FormsNavigation';
             style = {styles.submitButton}
             onPress={this.createPDF}>
             <Text style = {styles.submitButtonText}>Submit</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
-            style = {styles.submitButton}
-            onPress={this.switchForm}>
-            <Text style = {styles.submitButtonText}>Switch Form</Text>
           </TouchableOpacity>
         </View>
       );

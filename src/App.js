@@ -6,6 +6,10 @@ import CommunityPage from './pages/CommunityPage';
 import QuestionsPage from './pages/QuestionsPage';
 import FormPage from './pages/FormPage';
 import NotificationPage from './pages/NotificationPage';
+import CheckInForm from './pages/CheckInForm';
+import CheckOutForm from './pages/CheckOutForm';
+
+//import AppContainer from './FormsNavigation';
 
 const Drawer = createDrawerNavigator();
 
@@ -18,12 +22,15 @@ export default function App() {
         <Drawer.Screen name="Community" component={CommunityPage} />
         <Drawer.Screen name="FAQ" component={QuestionsPage} />
         <Drawer.Screen name="Notifications" component={NotificationPage} />
-        <Drawer.Screen name="Forms" component={FormPage} />
+        {/* <Drawer.Screen name="Forms" component={FormPage} /> */}
+        <Drawer.Screen name="Check-In Form" component={CheckInForm} />
+        <Drawer.Screen name="Check-Out Form" component={CheckOutForm} />
+
 
       </Drawer.Navigator>
       
     </NavigationContainer>
-
+  
   
   );
 } 
