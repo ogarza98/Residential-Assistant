@@ -13,7 +13,6 @@ import LogoutPage from './pages/LogoutPage';
 import PostPage from './pages/PostPage';
 import GuestProfilePage from './pages/GuestProfilePage';
 import AddPostPage from './pages/AddPostPage';
-import ImagePickerPage from './pages/ImagePickerPage';
 
 
 
