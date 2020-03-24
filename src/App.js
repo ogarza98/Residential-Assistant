@@ -44,6 +44,7 @@ function CommunityWall() {
     <Stack_1.Navigator headerMode="none">
       <Stack_1.Screen name="Post" component={PostPage} />
       <Stack_1.Screen name="AddPost" component={AddPostPage} />
+      <Stack_1.Screen name="GuestProfile" component={GuestProfilePage} />
     </Stack_1.Navigator>
 
   );

@@ -15,25 +15,18 @@ export default class GuestProfilePage extends React.Component {
       isLoaded: false,
    }
   }
-  
-  fetchUser(my_uid) {
 
-    console.log('test', my_uid)
-
-    let self = this;
-
-    firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
-      const userItem = snapshot.val();
-      let items = Object.values(userItem);
-      self.setState({ items: items });
-      self.setState({isLoaded: true});
-    });
-
-    return console.log('Done');
+  componentWillMount(){
+    console.log('componentWillMount');
 
 }
 
-  render() {
+componentWillUnmount(){
+  console.log('componentWillUnmount');
+}
+
+  componentDidMount() {
+    console.log('componentDidMount');
     const {poster_uid} = this.props.route.params;
 
     var posterUID = JSON.stringify(poster_uid);
@@ -48,17 +41,29 @@ export default class GuestProfilePage extends React.Component {
 
     var my_uid = PosterUIDString;
 
-    this.fetchUser(my_uid);
+    console.log('test', my_uid)
 
-    const { isLoaded, items} = this.state;
-    // console.log('firebase array', this.state.items)
-    // const itemArray = this.state.items;
+    let self = this;
 
+    firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
+      const userItem = snapshot.val();
+      let items = Object.values(userItem);
+      self.setState({ items: items });
+      self.setState({isLoaded: true});
+    });
+
+    
+  }
+  
+  render() {
+   
+    const {isLoaded, items} = this.state;
+   
     return (
       isLoaded ?
       <View style={styles.container}>
     <Header
-      leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
+      leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.goBack() }}
       centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
    />
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
