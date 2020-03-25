@@ -2,7 +2,7 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import * as firebase from "firebase";
-import { Container, Item, Form, Input, Button, Label, Title } from "native-base";
+// import { Container, Item, Form, Input, Button, Label, Title } from "native-base";
 import styles from './components/styles';
 import { Header, Icon} from 'react-native-elements';
 
