@@ -4,7 +4,7 @@ import { createDrawerNavigator} from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import QuestionsPage from './pages/QuestionsPage';
-import FormPage from './pages/FormPage';
+import FormsPage from './pages/FormsPage';
 import NotificationPage from './pages/NotificationPage';
 import ProfilePage from './pages/ProfilePage';
 import LoadingPage from './pages/LoadingPage';
@@ -16,6 +16,8 @@ import AddPostPage from './pages/AddPostPage';
 import LaundryPage from './pages/LaundryPage';
 import WorkOrdersPage from './pages/WorkOrdersPage';
 import ResourcesPage from './pages/ResourcesPage';
+import CheckInForm from './pages/CheckInForm';
+import CheckOutForm from './pages/CheckOutForm';
 
 
 
@@ -54,6 +56,18 @@ function Resources() {
   )
 }
 
+function Forms() {
+  return (
+
+    <Stack_1.Navigator headerMode="none">
+      <Stack_1.Screen name="Forms" component={FormsPage} />
+      <Stack_1.Screen name="CheckIn" component={CheckInForm} />
+      <Stack_1.Screen name="CheckOut" component={CheckOutForm} />
+    </Stack_1.Navigator>
+
+  )
+}
+
 function CommunityWall() {
   return (
     <Stack_1.Navigator headerMode="none">
@@ -73,7 +87,7 @@ function Home() {
       <Drawer.Screen name="Resources" component={Resources}/>
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
       <Drawer.Screen name="Notifications" component={NotificationPage} />
-      <Drawer.Screen name="Forms" component={FormPage} />
+      <Drawer.Screen name="Forms" component={Forms} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
     </Drawer.Navigator>
@@ -91,7 +105,7 @@ export default function App() {
       <Stack.Screen name="Login" component={LoginPage} />
     </Stack.Navigator>
     </NavigationContainer>
-
+  
   
   );
 }
