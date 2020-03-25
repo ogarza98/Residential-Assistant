@@ -112,6 +112,30 @@ const styles = StyleSheet.create({
         padding: 10,
         margin: 15,
         height: 40,
+      },
+      resources: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      },
+      icon: {
+        width: 50, 
+        height: 50
+      },
+      loginTitle:{
+        fontSize: 20,
+        textAlign: 'center',
+        paddingBottom: 20
+      },
+      loginText:{
+        fontSize: 15,
+        paddingBottom: 10,
+        paddingTop: 10
+      },
+      loginTextInput:{
+        fontSize: 15,
+        backgroundColor: '#F5F5F5',
+        padding: 15,
       }
   });
  

@@ -1,8 +1,7 @@
 // Login.js
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
-import * as firebase from "firebase";
-// import { Container, Item, Form, Input, Button, Label, Title } from "native-base";
+import * as firebase from "firebase"
 import styles from './components/styles';
 import { Header, Icon} from 'react-native-elements';
 
@@ -33,28 +32,24 @@ export default class LoginPage extends React.Component {
             rightComponent={{ icon: 'help', color: '#fff'}}/>
             <View style={styles.login_container}>
 
-            <Title> UTSA's Residential Assistant</Title>
-            <Form>
-            <Item floatingLabel>
-                <Label>Email</Label>
-                <Input
+            <Text style={styles.loginTitle}> UTSA's Residential Assistant</Text>
+                <Text style={styles.loginText}>Email</Text>
+                <TextInput
+                  style={styles.loginTextInput}
                   autoCapitalize="none"
                   autoCorrect={false}
                   onChangeText={email => this.setState({ email })}
                 />
-              </Item>
-              <Item floatingLabel>
-                <Label>Password</Label>
-                <Input
+        
+                <Text style={styles.loginText}>Password</Text>
+                <TextInput
+                style={styles.loginTextInput}
                   secureTextEntry={true}
                   autoCapitalize="none"
                   autoCorrect={false}
                   onChangeText={password => this.setState({ password })}
                 />
-              </Item>
     
-            </Form>
-
             <TouchableOpacity style={styles.buttonStyle} onPress={() => this.LogIn(this.state.email, this.state.password)} >
                 <Text style={styles.textStyle} >Login</Text>
               </TouchableOpacity>

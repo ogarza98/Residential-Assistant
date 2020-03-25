@@ -38,9 +38,8 @@ class WorkOrdersPage extends Component {
         return (
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-                    centerComponent={{ text: 'Work Orders', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'notifications', color: '#fff', onPress: () => this.props.navigation.navigate('Notifications') }}
+            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
+            centerComponent={{ text: 'Work Orders', style: { color: '#fff' } }}
                 />
               <WebView 
                 source={{uri: 'http://webtma.utsa.edu:180/housing/'}}

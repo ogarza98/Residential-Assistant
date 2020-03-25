@@ -15,6 +15,7 @@ import GuestProfilePage from './pages/GuestProfilePage';
 import AddPostPage from './pages/AddPostPage';
 import LaundryPage from './pages/LaundryPage';
 import WorkOrdersPage from './pages/WorkOrdersPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 
 
@@ -41,6 +42,18 @@ const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Stack_1 = createStackNavigator();
 
+function Resources() {
+  return (
+
+    <Stack_1.Navigator headerMode="none">
+      <Stack_1.Screen name="Resources" component={ResourcesPage} />
+      <Stack_1.Screen name="WorkOrder" component={WorkOrdersPage} />
+      <Stack_1.Screen name="Laundry" component={LaundryPage} />
+    </Stack_1.Navigator>
+
+  )
+}
+
 function CommunityWall() {
   return (
     <Stack_1.Navigator headerMode="none">
@@ -57,6 +70,7 @@ function Home() {
     
     <Drawer.Navigator>
       <Drawer.Screen name="Community Wall" component={CommunityWall}/>
+      <Drawer.Screen name="Resources" component={Resources}/>
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
       <Drawer.Screen name="Notifications" component={NotificationPage} />
       <Drawer.Screen name="Forms" component={FormPage} />

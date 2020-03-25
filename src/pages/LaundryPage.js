@@ -38,9 +38,8 @@ class LaundryPage extends Component {
         return (
             <View style={styles.container}>
                 <Header
-                    leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-                    centerComponent={{ text: 'Laundry', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'notifications', color: '#fff', onPress: () => this.props.navigation.navigate('Notifications') }}
+                leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
+                centerComponent={{ text: 'Laundry Page', style: { color: '#fff' } }}
                 />
               <WebView 
                 source={{uri: 'http://washalert.washlaundry.com/washalertweb/utsa/utsa.html'}}
