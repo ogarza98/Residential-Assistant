@@ -236,6 +236,22 @@ const styles = StyleSheet.create({
    },
    submitButtonText:{
       color: 'white'
-   }
+   },
+   TouchableOpacityStyle: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 30,
+    bottom: 30,
+  },
+
+  FloatingButtonStyle: {
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
+    //backgroundColor:'black'
+  }
   });
 export default styles

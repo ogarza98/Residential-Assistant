@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './components/styles'
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
 import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import { Header, Divider, Icon, Button} from 'react-native-elements';
 import {SingleImage} from 'react-native-zoom-lightbox';
@@ -17,6 +17,7 @@ export default class PostPage extends React.Component {
    }
   }
   
+  
   componentDidMount() {
     let self = this;
 
@@ -29,6 +30,9 @@ export default class PostPage extends React.Component {
 
 }
 
+clickHandler = () => {
+  this.props.navigation.navigate('AddPost')};
+
 
   render() {
     const { isLoaded, items} = this.state;
@@ -37,12 +41,14 @@ export default class PostPage extends React.Component {
     return (
       isLoaded ?
       <View style={styles.container}>
+      
     <Header
       leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
       centerComponent={{ text: 'Community Page', style: { color: '#fff' } }}
-      rightComponent={{ icon: 'library-add', color: '#fff', onPress: () => this.props.navigation.navigate('AddPost') }}
+      rightComponent={{ icon: 'refresh', color: '#fff', onPress: () => {this.componentDidMount(); Alert.alert("Page Refresh Complete")}}}
    />
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      
       <FlatList
        keyExtractor={this.state.items.id}
        data={this.state.items}
@@ -118,9 +124,26 @@ export default class PostPage extends React.Component {
                   
        )}
      />
+
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={this.clickHandler}
+          style={styles.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={{
+              uri:
+                'https://raw.githubusercontent.com/AboutReact/sampleresource/master/plus_icon.png',
+            }}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
       
       </View>
-      </View>
+    </View>
 
       : 
       <View>
