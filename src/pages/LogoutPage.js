@@ -7,7 +7,7 @@ import styles from './components/styles';
 export default class Loading extends React.Component {
   componentDidMount() {
     firebase.auth().signOut();
-    this.props.navigation.navigate('App', { screen: 'Loading' });
+    this.props.navigation.navigate('Loading' );
   }
   render() {
     return (
