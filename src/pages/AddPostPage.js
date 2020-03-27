@@ -94,6 +94,8 @@ let addItem = item => {
       var array = [this.state.text, this.state.items[0], this.state.items[2], firebase.auth().currentUser.uid, this.state.date, this.state.image_uri, this.state.title];
       addItem(array);
       Alert.alert('Item saved successfully');
+      this.props.navigation.goBack();
+
     };
 
     getPermissionAsync = async () => {
