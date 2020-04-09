@@ -4,7 +4,7 @@ import s from './styles';
 import firebase from 'firebase';
 
 function QuestionsIndex({items}) {
-    const [faqs, setfaqs]= useState([items[0],items[1],items[2]]);
+    const [faqs, setfaqs]= useState(items);
     const toggleFAQ = index => {
         setfaqs(faqs.map((items, i) => {
             if (i==index) {
@@ -24,8 +24,6 @@ function QuestionsIndex({items}) {
             
                     <TouchableOpacity
                         style={s.faq}
-                        keyExtractor={id}
-                        
                         onPress={() => toggleFAQ(id)}
                     >
                             <Text style={[items.open == true ? s.faqquestionopen : s.faqquestion]} >
