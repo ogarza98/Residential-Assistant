@@ -18,7 +18,7 @@ import WorkOrdersPage from './pages/WorkOrdersPage';
 import ResourcesPage from './pages/ResourcesPage';
 import CheckInForm from './pages/CheckInForm';
 import CheckOutForm from './pages/CheckOutForm';
-
+import ChatBotPage from './pages/ChatBotPage';
 
 
 import * as firebase from "firebase";
@@ -88,6 +88,7 @@ function Home() {
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
       <Drawer.Screen name="Notifications" component={NotificationPage} />
       <Drawer.Screen name="Forms" component={Forms} />
+      <Drawer.Screen name="Chat Bot" component={ChatBotPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
     </Drawer.Navigator>
