@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image, TextInput, TouchableHighlight, Alert, Button } from 'react-native';
+import { View, Text, ActivityIndicator, TouchableOpacity, StyleSheet, FlatList, Image, TextInput, TouchableHighlight, Alert } from 'react-native';
+import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
+import { Divider, Icon, Button} from 'react-native-elements';
 import GenerateRandomCode from 'react-random-code-generator';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
@@ -206,37 +207,44 @@ let addItem = item => {
         // const itemArray = this.state.items;
     
         return (
-          isLoaded ?
-          <View style={styles.container}>
-          <AddPostHeader navigation = {this.props.navigation} text = {'Add Post'}/>
-        <View style={styles.main}>
-          <TextInput style={styles.itemInput} onChange={this.handleChangeTitle} placeholder='Write a title...' />
-          <TextInput style={styles.itemInput_text} onChange={this.handleChangeText} multiline numberOfLines={5} placeholder='Write a caption...' />
+        isLoaded ?
+        <View style={styles.container}>
+
+        <AddPostHeader navigation = {this.props.navigation} text = {'Add Post'}/>
+        <TextInput style = {styles.input}
+             underlineColorAndroid = "transparent"
+             placeholder = "Title..."
+             placeholderTextColor = "#2589dc"
+             autoCapitalize = "none"
+             onChange = {this.handleChangeTitle}/>
+          
+          <TextInput style = {styles.input}
+             underlineColorAndroid = "transparent"
+             placeholder = "Write a caption..."
+             placeholderTextColor = "#2589dc"
+             autoCapitalize = "none"
+             onChangeText = {this.handleGuest}/>
 
 
-
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor="white"
-            onPress={this._pickImage}
-          >
-            <Text style={styles.buttonText}>Attach Image</Text>
-          </TouchableHighlight>
-
-
-        {image &&
+          <TouchableOpacity 
+            style = {styles.submitButton}
+            onPress={this._pickImage}>
+            <Text style = {styles.submitButtonText}>Attach Image</Text>
+          </TouchableOpacity>
+          {image &&
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
 
           <TouchableHighlight
-            style={styles.button}
+            style={styles.submitButton}
             underlayColor="white"
             onPress={this.handleSubmit}
           >
-            <Text style={styles.buttonText}>Add</Text>
+            <Text style={styles.submitButtonText}>Add</Text>
           </TouchableHighlight>
-        </View>
-        </View>
 
+
+
+        </View>
 : 
 <View>
   <ActivityIndicator size="large" />
