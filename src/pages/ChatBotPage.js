@@ -3,7 +3,7 @@ import { Button, View, Text, StyleSheet, Image } from 'react-native';
 import { Header } from 'react-native-elements';
 import { Component } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-
+import ChatBotHeader from './PageHeader';
 class ChatBotPage extends Component {
     state = {
         messages: [
@@ -29,10 +29,7 @@ class ChatBotPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
-                leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-                centerComponent={{ text: 'Chat Bot', style: { color: '#fff' } }}
-                />
+                <ChatBotHeader navigation = {this.props.navigation} text = {'Chat Bot'}/>
                 <GiftedChat
                 messages={this.state.messages}
                 onSend={messages => this.onSend(messages)}

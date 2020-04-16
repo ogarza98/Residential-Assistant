@@ -3,7 +3,7 @@ import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
 import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
-
+import ProfileHeader from './PageHeader';
 
 
 export default class GuestProfilePage extends React.Component {
@@ -62,10 +62,7 @@ componentWillUnmount(){
     return (
       isLoaded ?
       <View style={styles.container}>
-    <Header
-      leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-      centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
-   />
+        <ProfileHeader navigation = {this.props.navigation} text = {'Profile'}/>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={styles.profile_title}>{items[2]}</Text>
       <Image

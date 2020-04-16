@@ -2,14 +2,12 @@ import * as React from 'react';
 import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
+import FormsHeader from './PageHeader';
 
 function FormsPage({ navigation }) {
     return (
       <View style={styles.container}>
-         <Header
-        leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
-        centerComponent={{ text: 'Check In/Out', style: { color: '#fff' } }}
-        />
+         <FormsHeader navigation = {navigation} text = {'Check In/Out'}/>
 
         <View style={styles.center}>
           <View style={styles.resource}>

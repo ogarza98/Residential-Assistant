@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
 import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import { Header, Divider, Icon, Button} from 'react-native-elements';
+import CommunityHeader from './PageHeader';
 import {SingleImage} from 'react-native-zoom-lightbox';
 
 
@@ -42,11 +43,7 @@ clickHandler = () => {
       isLoaded ?
       <View style={styles.container}>
       
-    <Header
-      leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-      centerComponent={{ text: 'Community Page', style: { color: '#fff' } }}
-      rightComponent={{ icon: 'refresh', color: '#fff', onPress: () => {this.componentDidMount(); Alert.alert("Page Refresh Complete")}}}
-   />
+      <CommunityHeader navigation = {this.props.navigation} text = {'Community Wall'}/>
    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       
       <FlatList

@@ -4,6 +4,7 @@ import { Header } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { Component } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import WorkOrderHeader from './PageHeader';
 
 //import { Left, Right, Icon } from 'native-base';
 
@@ -39,10 +40,7 @@ class WorkOrdersPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
-            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-            centerComponent={{ text: 'Work Orders', style: { color: '#fff' } }}
-                />
+                <WorkOrderHeader navigation = {this.props.navigation} text = {'Work Order'}/>
               <WebView 
                 source={{uri: 'http://webtma.utsa.edu:180/housing/'}}
                 style={{flex: 1}}

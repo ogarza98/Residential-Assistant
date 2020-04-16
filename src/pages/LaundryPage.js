@@ -4,6 +4,7 @@ import { Header } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { Component } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import LaundryHeader from './PageHeader';
 
 //import { Left, Right, Icon } from 'native-base';
 
@@ -39,10 +40,7 @@ class LaundryPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header
-                leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-                centerComponent={{ text: 'Laundry Page', style: { color: '#fff' } }}
-                />
+                <LaundryHeader navigation = {this.props.navigation} text = {'Laundry Status'}/>
               <WebView 
                 source={{uri: 'http://washalert.washlaundry.com/washalertweb/utsa/utsa.html'}}
                 style={{flex: 1}}

@@ -7,6 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import styles from './components/styles'
+import AddPostHeader from './PageHeader';
 
 
 
@@ -207,11 +208,8 @@ let addItem = item => {
         return (
           isLoaded ?
           <View style={styles.container}>
-          <Header
-            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-         />
+          <AddPostHeader navigation = {this.props.navigation} text = {'Add Post'}/>
         <View style={styles.main}>
-          <Text style={styles.title_add}>Add Post</Text>
           <TextInput style={styles.itemInput} onChange={this.handleChangeTitle} placeholder='Write a title...' />
           <TextInput style={styles.itemInput_text} onChange={this.handleChangeText} multiline numberOfLines={5} placeholder='Write a caption...' />
 

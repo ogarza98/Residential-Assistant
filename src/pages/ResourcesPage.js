@@ -2,14 +2,13 @@ import * as React from 'react';
 import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
+import ResourcesHeader from './PageHeader';
+
 
 function ResourcesPage({ navigation }) {
     return (
       <View style={styles.container}>
-         <Header
-        leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
-        centerComponent={{ text: 'Resources Page', style: { color: '#fff' } }}
-        />
+        <ResourcesHeader navigation = {navigation} text = {'Resources'}/>
         
       <View style={styles.center}>
         <View style={styles.resource}>

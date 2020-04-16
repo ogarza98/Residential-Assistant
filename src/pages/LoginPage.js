@@ -4,6 +4,7 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-nativ
 import * as firebase from "firebase"
 import styles from './components/styles';
 import { Header, Icon} from 'react-native-elements';
+import LoginHeader from './PageHeader';
 
 
 export default class LoginPage extends React.Component {
@@ -27,9 +28,8 @@ export default class LoginPage extends React.Component {
       render() {
         return (
           <View style={styles.container}>
-            <Header
-            centerComponent={{ text: 'Welcome', style: { color: '#fff', fontWeight: 'bold' } }}
-            rightComponent={{ icon: 'help', color: '#fff'}}/>
+                  <LoginHeader navigation = {this.props.navigation} text = {'Welcome'}/>
+
             <View style={styles.login_container}>
 
             <Text style={styles.loginTitle}> UTSA's Residential Assistant</Text>
