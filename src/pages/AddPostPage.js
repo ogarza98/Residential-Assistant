@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, TouchableOpacity, StyleSheet, FlatList, Image, TextInput, TouchableHighlight, Alert } from 'react-native';
-import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
-import { Divider, Icon, Button} from 'react-native-elements';
 import GenerateRandomCode from 'react-random-code-generator';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import styles from './components/styles'
 import AddPostHeader from './PageHeader';
+import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TextInput, TouchableHighlight, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
+import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
+import { Header, Divider, Icon, Button} from 'react-native-elements';
 
 
 
@@ -211,36 +211,62 @@ let addItem = item => {
         <View style={styles.container}>
 
         <AddPostHeader navigation = {this.props.navigation} text = {'Add Post'}/>
-        <TextInput style = {styles.input}
+
+        
+          <Card>
+        <Divider style={{height: 10, backgroundColor: '#DCDCDC' }}/>
+        <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+        <Card.Content>
+          <View style={styles.row}>
+          <Avatar.Image size={35} source={{ uri: this.state.items[0]}}/>
+          
+
+          <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Title..."
              placeholderTextColor = "#2589dc"
              autoCapitalize = "none"
              onChange = {this.handleChangeTitle}/>
-          
-          <TextInput style = {styles.input}
+
+          </View>
+
+            <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"
              placeholder = "Write a caption..."
              placeholderTextColor = "#2589dc"
              autoCapitalize = "none"
              onChangeText = {this.handleGuest}/>
 
+        </Card.Content>
 
-          <TouchableOpacity 
+        {image &&
+          <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />}
+        
+        <TouchableOpacity 
             style = {styles.submitButton}
             onPress={this._pickImage}>
             <Text style = {styles.submitButtonText}>Attach Image</Text>
           </TouchableOpacity>
-          {image &&
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
 
           <TouchableHighlight
             style={styles.submitButton}
             underlayColor="white"
             onPress={this.handleSubmit}
           >
-            <Text style={styles.submitButtonText}>Add</Text>
+            <Text style={styles.submitButtonText}>Post</Text>
           </TouchableHighlight>
+
+          <Divider style={{height: 3, backgroundColor: 'white' }}/>
+
+          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+          <Divider style={{height: 10, backgroundColor: 'white' }}/>
+          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+          <Divider style={{height: 1.5, backgroundColor: '#DCDCDC' }}/>
+
+       </Card>
 
 
 
