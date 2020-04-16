@@ -99,9 +99,24 @@ const styles = StyleSheet.create({
       fontSize: 12
     },
     row: {
-            flexDirection: 'row', 
-            paddingTop: 10
-          },
+    flexDirection: 'row', 
+    paddingTop: 10
+    },
+    faqrow: {
+      flexDirection: 'row', 
+      alignItems: 'center',
+    },
+    faqButton: {
+      marginLeft: 9,
+      width: 25,
+      height: 25,
+    },
+    faqButtonopen: {
+      transform: [{ rotate: '180deg' }],
+      marginLeft: 9,
+      width: 25,
+      height: 25,
+    },
     post_row: {
       flex: 1,
       flexDirection: 'row', 
@@ -281,7 +296,7 @@ const styles = StyleSheet.create({
     height: 50,
     //backgroundColor:'black'
   },
-
+  
   FloatingButtonStyle: {
     resizeMode: 'contain',
     width: 50,

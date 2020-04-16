@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 import s from './styles';
 import firebase from 'firebase';
+import styles from './styles';
+import arrow from './arrowDown.png';
 
 function QuestionsIndex({items}) {
     const [faqs, setfaqs]= useState(items);
@@ -26,10 +28,13 @@ function QuestionsIndex({items}) {
                         style={s.faq}
                         onPress={() => toggleFAQ(id)}
                     >
+                        <View style = {styles.faqrow}>
+                            <Image style={[items.open == true ? styles.faqButtonopen : styles.faqButton]} source={arrow}/>
                             <Text style={[items.open == true ? s.faqquestionopen : s.faqquestion]} >
                                 {items.question}
+                                
                             </Text>
-                           
+                           </View>
                             <Text style = {[items.open == true ? s.faqansweropen : s.faqanswer]} >
                                 {items.answer}
                             </Text>
