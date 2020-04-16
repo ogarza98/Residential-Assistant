@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
     center: {
         flex: 1, 
-        flexDirection: 'row',
+        flexDirection: 'row', 
         alignItems: 'center', 
         justifyContent: 'center',
     },
@@ -171,13 +171,12 @@ const styles = StyleSheet.create({
         height: 40,
       },
       resources: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        marginTop: 50,
+        alignItems: 'center',
       },
       icon: {
-        width: 50, 
-        height: 50
+        width: 150, 
+        height: 150
       },
       loginTitle:{
         fontSize: 20,

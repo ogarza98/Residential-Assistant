@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Image, TouchableOpacity } from 'react-native';
+import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 
@@ -10,27 +10,41 @@ function ResourcesPage({ navigation }) {
         leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
         centerComponent={{ text: 'Resources Page', style: { color: '#fff' } }}
         />
-        <View style={styles.resource}>
-        <TouchableOpacity onPress={() => navigation.navigate('WorkOrder')}
-                            style={{width: 50, height: 50, backgroundColor: 'yellow'}} >
-        <Image
-          style={styles.icon}
-          source={{uri: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/hammer-724-1119515.png'}}
-        />
-        </TouchableOpacity>
         
-        <TouchableOpacity onPress={() => navigation.navigate('Laundry')}
-                            style={{width: 50, height: 50, backgroundColor: 'orange'}}>
- 
+      <View style={styles.center}>
+        <View style={styles.resource}>
+          
+          <TouchableOpacity onPress={() => navigation.navigate('WorkOrder')}
+                              style={{width: 150, height: 150}} >
             <Image
-            style={styles.icon}
-            source={{uri:'https://cdn.iconscout.com/icon/premium/png-256-thumb/laundry-1750079-1488389.png'}} /> 
-        </TouchableOpacity>
+              style={styles.icon}
+              source={{uri: 'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FworkOrder.png?alt=media&token=c2a8ae54-4035-44d9-861d-f6d43e51f06a'}}
+            />
 
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            <Text style={styles.loginTitle}>Work Orders</Text>
+          </TouchableOpacity>
+
         </View>
-            
+
+        <View style={styles.resource}>
+          
+          <TouchableOpacity onPress={() => navigation.navigate('Laundry')}
+                              style={{width: 150, height: 150}}>
+  
+              <Image
+              style={styles.icon}
+              source={{uri:'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FworkOrder-2.png?alt=media&token=78fcdd71-a48e-4538-89cd-0f8dc2e6eca0'}} /> 
+
+              <Text style={styles.loginTitle}>Laundry Status</Text>
+
+          </TouchableOpacity>
+
         </View>
+                  
+      </View>
+
+    </View>
+        
     );
   }
 
