@@ -99,10 +99,9 @@ const styles = StyleSheet.create({
       fontSize: 12
     },
     row: {
-      flex: 1, 
-      flexDirection: 'row', 
-      paddingTop: 10
-    },
+            flexDirection: 'row', 
+            paddingTop: 10
+          },
     post_row: {
       flex: 1,
       flexDirection: 'row', 
@@ -218,13 +217,28 @@ const styles = StyleSheet.create({
     color: '#2589dc',
     textAlign: 'center',
     },
-   input: {
-      margin: 15,
-      height: 40,
-      borderColor: '#2589dc',
-      borderWidth: 1,
-      padding: 10,
-   },
+    inputpost: {
+            height: 80,
+            padding: 4,
+            marginBottom: 90,
+            fontSize: 18,
+            marginTop: 20,
+            marginLeft: -10
+         },
+      inputposttitle: {
+              height: 40,
+              padding: 8,
+              fontSize: 22,
+              fontWeight: 'bold',
+              marginLeft: 4,
+           },
+      input: {
+        margin: 15,
+        height: 40,
+        borderColor: '#2589dc',
+        borderWidth: 1,
+        padding: 10,
+     },
    submitButton: {
       backgroundColor: '#2589dc',
       padding: 10,
@@ -232,6 +246,22 @@ const styles = StyleSheet.create({
       height: 40,
       justifyContent: 'center',
       alignItems: 'center',
+   },
+   addphoto:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: 55,
+    borderRadius: 0,
+    maxWidth: 768,
+    borderColor: '#dddddd',
+    borderWidth: 1,
+   },
+   addphototext: {
+      height: 40,
+      padding: 8,
+      fontSize: 20,
+      marginLeft: 4,
    },
    submitButtonText:{
       color: 'white'
@@ -244,6 +274,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     right: 30,
     bottom: 30,
+  },
+  photoButton: {
+    alignSelf: 'flex-start',
+    width: 50,
+    height: 50,
+    //backgroundColor:'black'
   },
 
   FloatingButtonStyle: {

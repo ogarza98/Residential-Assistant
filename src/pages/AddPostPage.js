@@ -79,9 +79,9 @@ let addItem = item => {
         
     }
   
-    handleChangeText = e => {
+    handleChangeText = (text) => {
       this.setState({
-        text: e.nativeEvent.text
+        text: text
       });
     };
 
@@ -210,9 +210,10 @@ let addItem = item => {
         isLoaded ?
         <View style={styles.container}>
 
-        <AddPostHeader navigation = {this.props.navigation} text = {'Add Post'}/>
-
-        
+        <AddPostHeader navigation = {this.props.navigation} text = {'Create Post'}
+        rightComponent = {{text: 'Post',style: { color: '#0080ff', fontSize: 20, flex: 1, fontWeight: 'bold' }, onPress: () => this.handleSubmit()}}
+        />
+        <ScrollView>
           <Card>
         <Divider style={{height: 10, backgroundColor: '#DCDCDC' }}/>
         <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
@@ -222,52 +223,45 @@ let addItem = item => {
           <Avatar.Image size={35} source={{ uri: this.state.items[0]}}/>
           
 
-          <TextInput style = {styles.input}
+          <TextInput style = {styles.inputposttitle}
              underlineColorAndroid = "transparent"
-             placeholder = "Title..."
-             placeholderTextColor = "#2589dc"
+             placeholder = "Program Title..."
+             placeholderTextColor = "#555555"
              autoCapitalize = "none"
              onChange = {this.handleChangeTitle}/>
 
           </View>
 
-            <TextInput style = {styles.input}
+            <TextInput style = {styles.inputpost}
              underlineColorAndroid = "transparent"
              placeholder = "Write a caption..."
-             placeholderTextColor = "#2589dc"
+             placeholderTextColor = "#555555"
              autoCapitalize = "none"
-             onChangeText = {this.handleGuest}/>
+             multiline = {true}
+             numberOfLines = {10}
+             onChangeText = {this.handleChangeText}/>
 
         </Card.Content>
 
         {image &&
-          <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />}
+          <Image source={{ uri: image }} style={styles.stretch} />}
         
         <TouchableOpacity 
-            style = {styles.submitButton}
+        style={styles.addphoto}
             onPress={this._pickImage}>
-            <Text style = {styles.submitButtonText}>Attach Image</Text>
+            <Image style={styles.photoButton} source={{ uri: 'https://img.icons8.com/clouds/100/000000/stack-of-photos.png'}}
+            />
+            <Text style = {styles.addphototext}>Photo/Video</Text>
           </TouchableOpacity>
+       
 
-          <TouchableHighlight
-            style={styles.submitButton}
-            underlayColor="white"
-            onPress={this.handleSubmit}
-          >
-            <Text style={styles.submitButtonText}>Post</Text>
-          </TouchableHighlight>
 
-          <Divider style={{height: 3, backgroundColor: 'white' }}/>
-
-          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
-
-          <Divider style={{height: 10, backgroundColor: 'white' }}/>
           <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
 
           <Divider style={{height: 1.5, backgroundColor: '#DCDCDC' }}/>
 
        </Card>
-
+       </ScrollView>
 
 
         </View>
