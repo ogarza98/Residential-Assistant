@@ -38,7 +38,7 @@ function PageHeader({navigation, text, rightComponent}) {
             <Header
                 leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
                 centerComponent={{ text: text, style: { color: '#fff', fontSize: 25, flex: 1, fontWeight: 'bold' } }}
-                rightComponent={{ icon: 'notifications', color: '#fff', onPress: () => navigation.navigate('Notifications') }}
+                rightComponent = {rightComponent}
 
             />
         </>
@@ -84,5 +84,3 @@ function PageHeader({navigation, text, rightComponent}) {
 }
 
 export default PageHeader;
-
-

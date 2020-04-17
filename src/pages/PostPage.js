@@ -43,7 +43,9 @@ clickHandler = () => {
       isLoaded ?
       <View style={styles.container}>
       
-      <CommunityHeader navigation = {this.props.navigation} text = {'Community Wall'}/>
+      <CommunityHeader navigation = {this.props.navigation} text = {'Community Wall'}
+      rightComponent={{ icon: 'refresh', color: '#fff', onPress: () => {this.componentDidMount(); Alert.alert("Page Refresh Complete")}}}
+            />
    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       
       <FlatList
@@ -131,7 +133,7 @@ clickHandler = () => {
             //We are using online image here
             source={{
               uri:
-                'https://raw.githubusercontent.com/AboutReact/sampleresource/master/plus_icon.png',
+                'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2Fadd%20post.png?alt=media&token=f926dcc0-bf6b-4d42-b6f5-eb9260e6b178',
             }}
             //You can use you project image Example below
             //source={require('./images/float-add-icon.png')}
