@@ -3,6 +3,8 @@ import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import ResourcesHeader from './PageHeader';
+import workOrderIcon from './components/workOrder.png';
+import laundryIcon from './components/laundry.png';
 
 
 function ResourcesPage({ navigation }) {
@@ -17,7 +19,7 @@ function ResourcesPage({ navigation }) {
                               style={{width: 150, height: 150}} >
             <Image
               style={styles.icon}
-              source={{uri: 'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FworkOrder.png?alt=media&token=c2a8ae54-4035-44d9-861d-f6d43e51f06a'}}
+              source={workOrderIcon}
             />
 
             <Text style={styles.loginTitle}>Work Orders</Text>
@@ -32,7 +34,7 @@ function ResourcesPage({ navigation }) {
   
               <Image
               style={styles.icon}
-              source={{uri:'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FworkOrder-2.png?alt=media&token=78fcdd71-a48e-4538-89cd-0f8dc2e6eca0'}} /> 
+              source={laundryIcon} /> 
 
               <Text style={styles.loginTitle}>Laundry Status</Text>
 

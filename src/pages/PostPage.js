@@ -6,7 +6,7 @@ import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import { Header, Divider, Icon, Button} from 'react-native-elements';
 import CommunityHeader from './PageHeader';
 import {SingleImage} from 'react-native-zoom-lightbox';
-
+import addIcon from './components/addpost.png';
 
 export default class PostPage extends React.Component {
 
@@ -131,10 +131,7 @@ clickHandler = () => {
           <Image
             //We are making FAB using TouchableOpacity with an image
             //We are using online image here
-            source={{
-              uri:
-                'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2Fadd%20post.png?alt=media&token=f926dcc0-bf6b-4d42-b6f5-eb9260e6b178',
-            }}
+            source={addIcon}
             //You can use you project image Example below
             //source={require('./images/float-add-icon.png')}
             style={styles.FloatingButtonStyle}

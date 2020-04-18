@@ -3,6 +3,8 @@ import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import FormsHeader from './PageHeader';
+import checkInIcon from './components/checkIn-2.png';
+import checkOutIcon from './components/checkOut-2.png';
 
 function FormsPage({ navigation }) {
     return (
@@ -16,7 +18,7 @@ function FormsPage({ navigation }) {
                                 style={{width: 150, height: 150}} >
               <Image
                 style={styles.icon}
-                source={{uri: 'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FcheckIn-2.png?alt=media&token=582e90dd-d8fb-4573-a1ec-2510ca174161'}}
+                source={checkInIcon}
               />
 
               <Text style={styles.loginTitle}>Check In Form</Text>
@@ -31,7 +33,7 @@ function FormsPage({ navigation }) {
     
                 <Image
                 style={styles.icon}
-                source={{uri:'https://firebasestorage.googleapis.com/v0/b/residentialassistant-37878.appspot.com/o/uploads%2FcheckOut-2.png?alt=media&token=e91db007-915a-4100-9479-9b6cac4121c7'}} /> 
+                source={checkOutIcon} /> 
 
                 <Text style={styles.loginTitle}>Check Out Form</Text>
 

@@ -9,7 +9,7 @@ import AddPostHeader from './PageHeader';
 import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TextInput, TouchableHighlight, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
 import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import { Header, Divider, Icon, Button} from 'react-native-elements';
-
+import photoIcon from './components/photoIcon.png';
 
 
 let addItem = item => {
@@ -249,7 +249,7 @@ let addItem = item => {
         <TouchableOpacity 
         style={styles.addphoto}
             onPress={this._pickImage}>
-            <Image style={styles.photoButton} source={{ uri: 'https://img.icons8.com/clouds/100/000000/stack-of-photos.png'}}
+            <Image style={styles.photoButton} source={photoIcon}
             />
             <Text style = {styles.addphototext}>Photo/Video</Text>
           </TouchableOpacity>
