@@ -11,7 +11,6 @@ function QuestionsIndex({items}) {
         setfaqs(faqs.map((items, i) => {
             if (i==index) {
                 items.open = !items.open;
-                console.log("checking items.answer", typeof(items.answer));
                 if(items.answer.indexOf("_n")){
                     var newName = items.answer.replace("_n","\n");
                     items.answer = newName

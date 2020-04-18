@@ -59,14 +59,13 @@ export default class QuestionsPage extends React.Component {
         dataSource: newData,
         search: text,
       });
+
+      QuestionsIndex(this.state.dataSource);
     }
     
   render() {
     const { isLoaded, items} = this.state;
     
-
-    
-    console.log('firebase array', this.state.items)
     if (this.state.isLoaded) {
       //Loading View while data is loading
       return (

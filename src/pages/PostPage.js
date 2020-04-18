@@ -37,7 +37,6 @@ clickHandler = () => {
 
   render() {
     const { isLoaded, items} = this.state;
-    console.log('firebase array', this.state.items)
 
     return (
       isLoaded ?
@@ -60,7 +59,6 @@ clickHandler = () => {
           <View style={styles.row}>
           <TouchableOpacity onPress={() => {
               
-              console.log(item.poster_uid, "original");
               /* 1. Navigate to the Details route with params */
                 this.props.navigation.navigate('GuestProfile', {
                 poster_uid: item.poster_uid ,

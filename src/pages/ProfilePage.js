@@ -18,7 +18,6 @@ export default class ProfilePage extends React.Component {
   }
   
   componentDidMount() {
-    console.log('uid', firebase.auth().currentUser.uid);
 
     var my_uid = firebase.auth().currentUser.uid;
 

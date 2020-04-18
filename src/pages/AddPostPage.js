@@ -13,7 +13,6 @@ import photoIcon from './components/photoIcon.png';
 
 
 let addItem = item => {
-    console.log('this sent over', item)
     firebase.database().ref('/posts').push({
       text: item[0],
       poster_uid: item[3],
@@ -52,8 +51,6 @@ let addItem = item => {
 
     componentDidMount() {
         this.getPermissionAsync();
-
-        console.log('uid', firebase.auth().currentUser.uid);
     
         var my_uid = firebase.auth().currentUser.uid;
     
@@ -203,7 +200,6 @@ let addItem = item => {
   
     render() {
         const { isLoaded, items, image} = this.state;
-        console.log('firebase array', this.state.items)
         // const itemArray = this.state.items;
     
         return (
