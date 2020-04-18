@@ -32,6 +32,7 @@ export default class QuestionsPage extends React.Component {
       }
         );
     })
+    
     .catch(error => {
       console.error(error);
     });
