@@ -9,16 +9,14 @@ function QuestionsIndex({items}) {
     const [faqs, setfaqs]= useState(items);
     const toggleFAQ = index => {
         setfaqs(faqs.map((items, i) => {
-
-            console.log("checking items.answer", typeof(items.answer));
-
-            if(items.answer.indexOf("_n")){
-                var newName = items.answer.replace("_n","\n");
-                items.answer = newName
-                }
-
             if (i==index) {
                 items.open = !items.open;
+                console.log("checking items.answer", typeof(items.answer));
+                if(items.answer.indexOf("_n")){
+                    var newName = items.answer.replace("_n","\n");
+                    items.answer = newName
+                    }
+                
             } else {
                 items.open = false;
             }
