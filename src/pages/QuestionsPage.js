@@ -59,13 +59,14 @@ export default class QuestionsPage extends React.Component {
         dataSource: newData,
         search: text,
       });
-
-      QuestionsIndex(this.state.dataSource);
     }
     
   render() {
     const { isLoaded, items} = this.state;
     
+
+    
+    console.log('firebase array', this.state.items)
     if (this.state.isLoaded) {
       //Loading View while data is loading
       return (
@@ -89,9 +90,7 @@ export default class QuestionsPage extends React.Component {
       
         <ScrollView>
               <QuestionsIndex 
-              items = {this.state.dataSource} 
-              id = {this.state.items.id}
-              
+              items = {this.state.dataSource}
               />
           </ScrollView>
        </View>   

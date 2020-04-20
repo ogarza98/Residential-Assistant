@@ -10,6 +10,11 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     faqquestion: {
+      maxHeight: 0,
+      opacity: 0,
+      overflow: 'hidden'
+    },
+    faqsection: {
       maxWidth: 768,
       justifyContent: 'flex-start',
       fontSize: 18,
@@ -23,8 +28,8 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       fontSize: 18,
       flexDirection: 'column',
-      padding: 15,
       fontWeight: 'bold',
+      padding: 15,
       paddingRight: 60
     },
     imagestyle: {
@@ -43,6 +48,11 @@ const styles = StyleSheet.create({
       transform: [{ rotate: '180deg' }]
     },
     faqanswer: {
+      maxHeight: 0,
+      opacity: 0,
+      overflow: 'hidden'
+    },
+    faqButtonclosed: {
       maxHeight: 0,
       opacity: 0,
       overflow: 'hidden'

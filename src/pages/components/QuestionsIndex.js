@@ -7,49 +7,81 @@ import arrow from './arrowDown.png';
 
 function QuestionsIndex({items}) {
     const [faqs, setfaqs]= useState(items);
-    const toggleFAQ = index => {
-        setfaqs(faqs.map((items, i) => {
-            if (i==index) {
-                items.open = !items.open;
-                if(items.answer.indexOf("_n")){
-                    var newName = items.answer.replace("_n","\n");
-                    items.answer = newName
+    const toggleFAQ = id => {
+        setfaqs(faqs.map((item,i) => {
+            if (i==id) {
+                    item.open = !item.open;
+                if(item.answer.indexOf("_n")){
+                    var newName = item.answer.replace("_n","\n");
+                    item.answer = newName
                     }
-                
             } else {
-                items.open = false;
+                item.open = false;
             }
-            return items;
+            return item;
         }))
     }
+    //const toggleSection = id => {
+       // setfaqs(faqs.map((item,i) => {
+          //  if (i==id) {
+               //     item.opensection = !item.opensection;
+            //} else {
+             //   item.opensection = false;
+           // }
+           // return item;
+        //}))
+    //}
     return(
-           
-            <View style={s.faqs}>
+       
+        <View style={s.faqs}>
                 
-                {faqs.map((items, id) => (
-                    <View>
-            
+            <FlatList
+                data = {items}
+                renderItem={({item, index}) => (
+                  
+                  //<TouchableOpacity
+                  //style={s.faq}
+                  //onPress={() => toggleSection(index)}
+//>
+                     // <View style = {styles.faqrow}>
+                     // <Image style={[item.opensection == true ? s.faqButtonopen : s.faqButton]} source={arrow}/>
+                     //       <Text style={s.faqsection} >
+                     //           {item.Section}
+                                
+                     //       </Text>
+                     // </View>
+                 
+                  
+
+                <View>
+                    
                     <TouchableOpacity
                         style={s.faq}
-                        onPress={() => toggleFAQ(id)}
+                        onPress={() => toggleFAQ(index)}
                     >
                         <View style = {styles.faqrow}>
-                            <Image style={[items.open == true ? styles.faqButtonopen : styles.faqButton]} source={arrow}/>
-                            <Text style={[items.open == true ? s.faqquestionopen : s.faqquestion]} >
-                                {items.question}
+                         <Image style={[item.open == true ? s.faqButtonopen : s.faqButton]} source={arrow}/>
+
+                            <Text style={s.faqquestionopen} >
+                                {item.question}
                                 
                             </Text>
-                           </View>
-                            <Text style = {[items.open == true ? s.faqansweropen : s.faqanswer]} >
-                                {items.answer}
+                        </View>
+
+                            <Text style = {[item.open == true ? s.faqansweropen : s.faqanswer]} >
+                                {item.answer}
                             </Text>
                            
                     </TouchableOpacity>
                 </View>  
-                        
-                ))}
+                 //</TouchableOpacity>
+                )}
+                enableEmptySections={true}
+          
+            /> 
+            
                 
-            </View>
+        </View>
             
         );
 }
