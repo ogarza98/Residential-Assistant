@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './components/styles'
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
+import { View, Text, ActivityIndicator, Share, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
 import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import { Header, Divider, Icon, Button} from 'react-native-elements';
 import CommunityHeader from './PageHeader';
@@ -17,9 +17,8 @@ export default class PostPage extends React.Component {
       isLoaded: false,
    }
   }
-  
-  
-  componentDidMount() {
+
+   componentDidMount() {
     let self = this;
 
     firebase.database().ref('posts/').once('value', function (snapshot) {
@@ -31,8 +30,39 @@ export default class PostPage extends React.Component {
 
 }
 
+shareButton(item){
+  Share.share({ 
+    message: 'Check out this event at UTSA',
+    url: item
+  })
+  
+}
+
+moreButton(item){
+  console.log("huh", item);
+  Alert.alert(
+    "Information",
+    "Post ID: " + item.toString(),
+    [
+      {
+        text: "Report",
+        onPress: () => console.log("Ask me later pressed")
+      },
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      },
+    ],
+    { cancelable: false }
+  );
+  
+}
+
 clickHandler = () => {
-  this.props.navigation.navigate('AddPost')};
+  this.props.navigation.navigate('AddPost')
+
+};
 
 
   render() {
@@ -87,21 +117,19 @@ clickHandler = () => {
 
           
           <View style={styles.post_row}>
-            <TouchableOpacity style = {styles.post_action}>
-              <View style={styles.post_action}>
-                <Icon name='favorite' />
-                <Text> Like</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity style = {styles.post_action}>
+            
+            <TouchableOpacity style = {styles.post_action} 
+            onPress={() => this.shareButton(item.photoUrl)}>
               <View style={styles.post_action}>
                 <Icon name='share' />
                 <Text> Share</Text>
               </View>
             </TouchableOpacity>
+
+           
             
-            <TouchableOpacity style = {styles.post_action}>
+            <TouchableOpacity style = {styles.post_action}
+            onPress={() => this.moreButton(item.id)}>
               <View style={styles.post_action}>
                 <Icon name='info' />
                 <Text> Info</Text>
@@ -146,3 +174,4 @@ clickHandler = () => {
     )
   }
 }
+
