@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image, TextInput, TouchableHighlight, Alert, Button } from 'react-native';
 import GenerateRandomCode from 'react-random-code-generator';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import styles from './components/styles'
-
+import AddPostHeader from './PageHeader';
+import { View, Text, ActivityIndicator, StyleSheet, Image, FlatList, TextInput, TouchableHighlight, TouchableOpacity, ScrollView, RefreshControl, Alert } from 'react-native';
+import { Avatar, Card, Title, Paragraph} from 'react-native-paper';
+import { Header, Divider, Icon, Button} from 'react-native-elements';
+import photoIcon from './components/photoIcon.png';
 
 
 let addItem = item => {
-    console.log('this sent over', item)
     firebase.database().ref('/posts').push({
       text: item[0],
       poster_uid: item[3],
@@ -50,8 +51,6 @@ let addItem = item => {
 
     componentDidMount() {
         this.getPermissionAsync();
-
-        console.log('uid', firebase.auth().currentUser.uid);
     
         var my_uid = firebase.auth().currentUser.uid;
     
@@ -77,9 +76,9 @@ let addItem = item => {
         
     }
   
-    handleChangeText = e => {
+    handleChangeText = (text) => {
       this.setState({
-        text: e.nativeEvent.text
+        text: text
       });
     };
 
@@ -201,44 +200,67 @@ let addItem = item => {
   
     render() {
         const { isLoaded, items, image} = this.state;
-        console.log('firebase array', this.state.items)
         // const itemArray = this.state.items;
     
         return (
-          isLoaded ?
-          <View style={styles.container}>
-          <Header
-            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-         />
-        <View style={styles.main}>
-          <Text style={styles.title_add}>Add Post</Text>
-          <TextInput style={styles.itemInput} onChange={this.handleChangeTitle} placeholder='Write a title...' />
-          <TextInput style={styles.itemInput_text} onChange={this.handleChangeText} multiline numberOfLines={5} placeholder='Write a caption...' />
+        isLoaded ?
+        <View style={styles.container}>
 
+        <AddPostHeader navigation = {this.props.navigation} text = {'Create Post'}
+        rightComponent = {{text: 'Post',style: { color: '#0080ff', fontSize: 20, flex: 1, fontWeight: 'bold' }, onPress: () => this.handleSubmit()}}
+        />
+        <ScrollView>
+          <Card>
+        <Divider style={{height: 10, backgroundColor: '#DCDCDC' }}/>
+        <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
 
+        <Card.Content>
+          <View style={styles.row}>
+          <Avatar.Image size={35} source={{ uri: this.state.items[0]}}/>
+          
 
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor="white"
-            onPress={this._pickImage}
-          >
-            <Text style={styles.buttonText}>Attach Image</Text>
-          </TouchableHighlight>
+          <TextInput style = {styles.inputposttitle}
+             underlineColorAndroid = "transparent"
+             placeholder = "Program Title..."
+             placeholderTextColor = "#555555"
+             autoCapitalize = "none"
+             onChange = {this.handleChangeTitle}/>
 
+          </View>
+
+            <TextInput style = {styles.inputpost}
+             underlineColorAndroid = "transparent"
+             placeholder = "Write a caption..."
+             placeholderTextColor = "#555555"
+             autoCapitalize = "none"
+             multiline = {true}
+             numberOfLines = {10}
+             onChangeText = {this.handleChangeText}/>
+
+        </Card.Content>
 
         {image &&
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+          <Image source={{ uri: image }} style={styles.stretch} />}
+        
+        <TouchableOpacity 
+        style={styles.addphoto}
+            onPress={this._pickImage}>
+            <Image style={styles.photoButton} source={photoIcon}
+            />
+            <Text style = {styles.addphototext}>Photo/Video</Text>
+          </TouchableOpacity>
+       
 
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor="white"
-            onPress={this.handleSubmit}
-          >
-            <Text style={styles.buttonText}>Add</Text>
-          </TouchableHighlight>
-        </View>
-        </View>
 
+          <Divider style={{height: 1.5, backgroundColor: 'black' }}/>
+
+          <Divider style={{height: 1.5, backgroundColor: '#DCDCDC' }}/>
+
+       </Card>
+       </ScrollView>
+
+
+        </View>
 : 
 <View>
   <ActivityIndicator size="large" />

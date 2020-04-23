@@ -1,10 +1,10 @@
 import * as React from 'react';
 import s from './components/styles'
 import * as firebase from "firebase";
-import { View, ActivityIndicator} from 'react-native';
+import { View, ActivityIndicator, Text} from 'react-native';
 import QuestionsHeader from './PageHeader';
 
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, FlatList } from 'react-native-gesture-handler';
 import QuestionsIndex from './components/QuestionsIndex';
 import { SearchBar } from 'react-native-elements';
 
@@ -32,6 +32,7 @@ export default class QuestionsPage extends React.Component {
       }
         );
     })
+    
     .catch(error => {
       console.error(error);
     });
@@ -63,9 +64,6 @@ export default class QuestionsPage extends React.Component {
   render() {
     const { isLoaded, items} = this.state;
     
-
-    
-    console.log('firebase array', this.state.items)
     if (this.state.isLoaded) {
       //Loading View while data is loading
       return (
@@ -86,12 +84,14 @@ export default class QuestionsPage extends React.Component {
           placeholder="Type Here..."
           value={this.state.search}
         />
+      
         <ScrollView>
               <QuestionsIndex 
               items = {this.state.dataSource} 
               id = {this.state.items.id}
+              
               />
-          </ScrollView>    
+          </ScrollView>
        </View>   
     )
   }

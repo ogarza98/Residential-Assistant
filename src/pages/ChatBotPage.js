@@ -27,6 +27,8 @@ const BOT_USER = {
   avatar: 'https://i.imgur.com/MQGejDm.png',
 };
 import { Header } from 'react-native-elements';
+import ChatBotHeader from './PageHeader';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -165,10 +167,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Header              
-            leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.toggleDrawer() }}
-            centerComponent={{ text: 'Chat Bot', style: { color: '#fff' } }}
-        />
+        <ChatBotHeader navigation = {this.props.navigation} text = {'Chat Bot'}/>
         <StatusBar hidden />
         <View style={{ backgroundColor: '#fff' }}>
           {/* <Text style={{ fontSize: 15, color: '#aaa', textAlign: 'center' }}>

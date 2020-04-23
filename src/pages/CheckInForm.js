@@ -9,6 +9,7 @@ import * as Permissions from 'expo-permissions'
 import PDFreader from 'rn-pdf-reader-js'
 import * as MailComposer from 'expo-mail-composer';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import CheckInHeader from './PageHeader';
 
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
@@ -69,10 +70,7 @@ import { Header } from 'react-native-elements';
     render() {
       return (
         <View style={styles.container}>
-          <Header
-            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-            centerComponent={{ text: 'Check-In Form', style: { fontSize: 20, color: '#fff' }}}
-          />
+          <CheckInHeader navigation = {this.props.navigation} text = {'Check-In Form'}/>
           {/* <Text style = {styles.header}>Check-In Form</Text> */}
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"

@@ -9,6 +9,7 @@ import * as Permissions from 'expo-permissions'
 import PDFreader from 'rn-pdf-reader-js'
 import * as MailComposer from 'expo-mail-composer';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import CheckOutHeader from './PageHeader';
 
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
@@ -106,10 +107,7 @@ export default class CheckOutForm extends React.Component {
       const { shift } = this.state;
       return (
         <Animated.View style={styles.container, { transform: [{translateY: shift}] }}>
-          <Header
-            leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => this.props.navigation.goBack() }}
-            centerComponent={{ text: 'Check-Out Form', style: {fontSize: 20, color: '#fff' } }}
-          />
+          <CheckOutHeader navigation = {this.props.navigation} text = {'Check-Out Form'}/>
           {/* <Text style = {styles.header}>Check-Out Form</Text> */}
           <TextInput style = {styles.input}
              underlineColorAndroid = "transparent"

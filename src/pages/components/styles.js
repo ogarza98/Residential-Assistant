@@ -10,6 +10,11 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     faqquestion: {
+      maxHeight: 0,
+      opacity: 0,
+      overflow: 'hidden'
+    },
+    faqsection: {
       maxWidth: 768,
       justifyContent: 'flex-start',
       fontSize: 18,
@@ -23,8 +28,8 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       fontSize: 18,
       flexDirection: 'column',
-      padding: 15,
       fontWeight: 'bold',
+      padding: 15,
       paddingRight: 60
     },
     imagestyle: {
@@ -43,6 +48,11 @@ const styles = StyleSheet.create({
       transform: [{ rotate: '180deg' }]
     },
     faqanswer: {
+      maxHeight: 0,
+      opacity: 0,
+      overflow: 'hidden'
+    },
+    faqButtonclosed: {
       maxHeight: 0,
       opacity: 0,
       overflow: 'hidden'
@@ -69,7 +79,7 @@ const styles = StyleSheet.create({
     },
     center: {
         flex: 1, 
-        flexDirection: 'row',
+        flexDirection: 'row', 
         alignItems: 'center', 
         justifyContent: 'center',
     },
@@ -99,9 +109,23 @@ const styles = StyleSheet.create({
       fontSize: 12
     },
     row: {
-      flex: 1, 
+    flexDirection: 'row', 
+    paddingTop: 10
+    },
+    faqrow: {
       flexDirection: 'row', 
-      paddingTop: 10
+      alignItems: 'center',
+    },
+    faqButton: {
+      marginLeft: 9,
+      width: 25,
+      height: 25,
+    },
+    faqButtonopen: {
+      transform: [{ rotate: '180deg' }],
+      marginLeft: 9,
+      width: 25,
+      height: 25,
     },
     post_row: {
       flex: 1,
@@ -171,13 +195,12 @@ const styles = StyleSheet.create({
         height: 40,
       },
       resources: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        marginTop: 50,
+        alignItems: 'center',
       },
       icon: {
-        width: 50, 
-        height: 50
+        width: 150, 
+        height: 150
       },
       loginTitle:{
         fontSize: 20,
@@ -219,13 +242,28 @@ const styles = StyleSheet.create({
     color: '#2589dc',
     textAlign: 'center',
     },
-   input: {
-      margin: 15,
-      height: 40,
-      borderColor: '#2589dc',
-      borderWidth: 1,
-      padding: 10,
-   },
+    inputpost: {
+            height: 80,
+            padding: 4,
+            marginBottom: 90,
+            fontSize: 18,
+            marginTop: 20,
+            marginLeft: -10
+         },
+      inputposttitle: {
+              height: 40,
+              padding: 8,
+              fontSize: 22,
+              fontWeight: 'bold',
+              marginLeft: 4,
+           },
+      input: {
+        margin: 15,
+        height: 40,
+        borderColor: '#2589dc',
+        borderWidth: 1,
+        padding: 10,
+     },
    submitButton: {
       backgroundColor: '#2589dc',
       padding: 10,
@@ -233,6 +271,22 @@ const styles = StyleSheet.create({
       height: 40,
       justifyContent: 'center',
       alignItems: 'center',
+   },
+   addphoto:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: 55,
+    borderRadius: 0,
+    maxWidth: 768,
+    borderColor: '#dddddd',
+    borderWidth: 1,
+   },
+   addphototext: {
+      height: 40,
+      padding: 8,
+      fontSize: 20,
+      marginLeft: 4,
    },
    submitButtonText:{
       color: 'white'
@@ -246,7 +300,13 @@ const styles = StyleSheet.create({
     right: 30,
     bottom: 30,
   },
-
+  photoButton: {
+    alignSelf: 'flex-start',
+    width: 50,
+    height: 50,
+    //backgroundColor:'black'
+  },
+  
   FloatingButtonStyle: {
     resizeMode: 'contain',
     width: 50,

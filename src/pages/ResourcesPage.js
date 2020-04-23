@@ -1,36 +1,51 @@
 import * as React from 'react';
-import { Button, View, Image, TouchableOpacity } from 'react-native';
+import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
+import ResourcesHeader from './PageHeader';
+import workOrderIcon from './components/workOrder.png';
+import laundryIcon from './components/laundry.png';
+
 
 function ResourcesPage({ navigation }) {
     return (
       <View style={styles.container}>
-         <Header
-        leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
-        centerComponent={{ text: 'Resources Page', style: { color: '#fff' } }}
-        />
-        <View style={styles.resource}>
-        <TouchableOpacity onPress={() => navigation.navigate('WorkOrder')}
-                            style={{width: 50, height: 50, backgroundColor: 'yellow'}} >
-        <Image
-          style={styles.icon}
-          source={{uri: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/hammer-724-1119515.png'}}
-        />
-        </TouchableOpacity>
+        <ResourcesHeader navigation = {navigation} text = {'Resources'}/>
         
-        <TouchableOpacity onPress={() => navigation.navigate('Laundry')}
-                            style={{width: 50, height: 50, backgroundColor: 'orange'}}>
- 
+      <View style={styles.center}>
+        <View style={styles.resource}>
+          
+          <TouchableOpacity onPress={() => navigation.navigate('WorkOrder')}
+                              style={{width: 150, height: 150}} >
             <Image
-            style={styles.icon}
-            source={{uri:'https://cdn.iconscout.com/icon/premium/png-256-thumb/laundry-1750079-1488389.png'}} /> 
-        </TouchableOpacity>
+              style={styles.icon}
+              source={workOrderIcon}
+            />
 
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            <Text style={styles.loginTitle}>Work Orders</Text>
+          </TouchableOpacity>
+
         </View>
-            
+
+        <View style={styles.resource}>
+          
+          <TouchableOpacity onPress={() => navigation.navigate('Laundry')}
+                              style={{width: 150, height: 150}}>
+  
+              <Image
+              style={styles.icon}
+              source={laundryIcon} /> 
+
+              <Text style={styles.loginTitle}>Laundry Status</Text>
+
+          </TouchableOpacity>
+
         </View>
+                  
+      </View>
+
+    </View>
+        
     );
   }
 

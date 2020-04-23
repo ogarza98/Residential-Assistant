@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import QuestionsPage from './pages/QuestionsPage';
 import FormsPage from './pages/FormsPage';
-import NotificationPage from './pages/NotificationPage';
 import ProfilePage from './pages/ProfilePage';
 import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
@@ -86,7 +85,6 @@ function Home() {
       <Drawer.Screen name="Community Wall" component={CommunityWall}/>
       <Drawer.Screen name="Resources" component={Resources}/>
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
-      <Drawer.Screen name="Notifications" component={NotificationPage} />
       <Drawer.Screen name="Forms" component={Forms} />
       <Drawer.Screen name="Chat Bot" component={ChatBotPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
