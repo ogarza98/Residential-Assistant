@@ -97,7 +97,7 @@ export default class CheckOutForm extends React.Component {
 
             MailComposer.composeAsync({
                 recipients:["djram2898@outlook.com"],
-                subject:"Housing Check-In Form",
+                subject:"Housing Check-Out Form",
                 attachments: [filepath.uri],
             })
          })

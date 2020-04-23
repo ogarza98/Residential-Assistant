@@ -64,6 +64,31 @@ export default class App extends React.Component {
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, [msg]),
     }));
+
+    if(text == "Dorms can be checked in by filling out the Check-In form in the Forms page of this application.") {
+      setTimeout(() => {  this.handleFormsNavigation(); }, 2000);
+    }
+    if(text == "Campus events can be found posted on the Community Wall of this application.") {
+      setTimeout(() => {  this.handleWallNavigation(); }, 2000);
+    }
+    if(text == "Your account profile is under the Profile page of the application.") {
+      setTimeout(() => {  this.handleProfileNavigation(); }, 2000);
+    }
+    if(text == "Dorms can be checked out of by filling out the Check-Out form in the forms page of this application.") {
+      setTimeout(() => {  this.handleFormsNavigation(); }, 2000);
+    }
+  }
+
+  handleFormsNavigation() {
+    this.props.navigation.navigate('Forms');
+  }
+
+  handleWallNavigation() {
+    this.props.navigation.navigate('Community Wall');
+  }
+
+  handleProfileNavigation() {
+    this.props.navigation.navigate('Profile');
   }
 
   handleGoogleResponse(result) {
@@ -122,30 +147,7 @@ export default class App extends React.Component {
       </Send> 
     );
   }
-  onLongPress(context, message) {
-    console.log(context, message);
-    const options = ['Copy','Delete', 'Cancel'];
-    const cancelButtonIndex = options.length - 1;
-    context.actionSheet().showActionSheetWithOptions(
-      {
-        options,
-        cancelButtonIndex,
-      },
-      buttonIndex => {
-        switch (buttonIndex) {
-          case 0:
-            // Your delete logic
-            //Clipboard.setString(message);
-            break;
-          case 1:
-            // Your delete logic
-            break;
-          default:
-            break;
-        }
-      }
-    );
-  }
+
   renderSystemMessage = props => {
     return (
       <SystemMessage
@@ -174,7 +176,6 @@ export default class App extends React.Component {
           </Text> */}
         </View>
         <GiftedChat
-          onLongPress={this.onLongPress}
           renderLoading={() => (
             <ActivityIndicator size="large" color="#FF3D00" />
           )}
@@ -184,7 +185,7 @@ export default class App extends React.Component {
           renderBubble={this.renderBubble}
           inverted={true}
           locale="pt-BR"
-          onPressAvatar={() => Alert.alert(' Hello, how are you?', 'I am your Virtual Residential Assistant')}
+          onPressAvatar={() => Alert.alert(' Hello, how are you?', 'I am your Virtual Residential Assistant.')}
           placeholder={'Message'}
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}

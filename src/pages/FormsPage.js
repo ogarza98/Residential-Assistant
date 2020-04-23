@@ -8,7 +8,7 @@ function FormsPage({ navigation }) {
       <View style={styles.container}>
          <Header
         leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
-        centerComponent={{ text: 'Resources Page', style: { color: '#fff' } }}
+        centerComponent={{ text: 'Forms Page', style: { color: '#fff' } }}
         />
         <View style={styles.resource}>
         <TouchableOpacity onPress={() => navigation.navigate('CheckIn')}

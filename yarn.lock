@@ -1708,10 +1708,10 @@
   dependencies:
     shortid "^2.2.15"
 
-"@react-navigation/stack@^5.1.1":
-  version "5.2.6"
-  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.2.6.tgz#c9c12745c475ba409d63efea4e554da09ae3758c"
-  integrity sha512-yyxCmbynZ3WJhelt3F2+2/yAqegJWfXbuyoaKCmIOr1nKyTWA+uIJiYS1CdXLYvR7EK5OCN7WSCMruExx2tGhA==
+"@react-navigation/stack@^5.2.10":
+  version "5.2.10"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-5.2.10.tgz#a2c8ff7f2da8f0d5cb04351379106ee9b8ef7dd8"
+  integrity sha512-QOx+ak+nLox9h4iwxL6+eJ6ndo4C43BVibN8/EWLydvcHB078eqSCKB77PS6XsohGGe0xbD/+jTOYbvPpfpjGw==
   dependencies:
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
@@ -11036,9 +11036,9 @@ react-native-paper@^3.6.0:
     color "^3.1.2"
     react-native-safe-area-view "^0.14.6"
 
-"react-native-parsed-text@git+https://github.com/EvanBacon/react-native-parsed-text.git":
+"react-native-parsed-text@https://github.com/EvanBacon/react-native-parsed-text.git":
   version "0.0.22"
-  resolved "git+https://github.com/EvanBacon/react-native-parsed-text.git#c909f64ee437796fd1b047edd73146fc89edb796"
+  resolved "https://github.com/EvanBacon/react-native-parsed-text.git#c909f64ee437796fd1b047edd73146fc89edb796"
   dependencies:
     prop-types "^15.5.10"
 
