@@ -5,6 +5,8 @@ import { Header } from 'react-native-elements';
 import ResourcesHeader from './PageHeader';
 import workOrderIcon from './components/workOrder.png';
 import laundryIcon from './components/laundry.png';
+import vraIcon from './components/vraIcon.png';
+
 
 
 function ResourcesPage({ navigation }) {
@@ -41,6 +43,20 @@ function ResourcesPage({ navigation }) {
           </TouchableOpacity>
 
         </View>
+
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() =>  navigation.navigate('Chat Bot')}
+          style={styles.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={vraIcon}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
                   
       </View>
 

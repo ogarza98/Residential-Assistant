@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Button, View, Image, TouchableOpacity, Text } from 'react-native';
+import { Button, View, Image, TouchableOpacity, Text} from 'react-native';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import FormsHeader from './PageHeader';
 import checkInIcon from './components/checkIn-2.png';
 import checkOutIcon from './components/checkOut-2.png';
+import vraIcon from './components/vraIcon.png';
+
 
 function FormsPage({ navigation }) {
     return (
@@ -40,6 +42,21 @@ function FormsPage({ navigation }) {
             </TouchableOpacity>
 
           </View>
+
+          <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() =>  navigation.navigate('Chat Bot')}
+          style={styles.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={vraIcon}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
+
                     
         </View>
 

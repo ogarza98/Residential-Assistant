@@ -2,8 +2,10 @@ import * as React from 'react';
 import styles from './components/styles'
 import { Header } from 'react-native-elements';
 import * as firebase from "firebase";
-import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import ProfileHeader from './PageHeader';
+import vraIcon from './components/vraIcon.png';
+
 
 
 
@@ -32,6 +34,11 @@ export default class ProfilePage extends React.Component {
 
 }
 
+clickHandlerTwo = () => {
+  this.props.navigation.navigate('Chat Bot')
+
+};
+
 
   render() {
     const { isLoaded, items} = this.state;
@@ -51,6 +58,20 @@ export default class ProfilePage extends React.Component {
         <Text style={styles.profile_title}>{items[1]}</Text>
         <Text style={styles.profile_title}>{items[3]}</Text>
         <Text style={styles.profile_title}>{items[4]}</Text>
+
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={this.clickHandlerTwo}
+          style={styles.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={vraIcon}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
 
 
 
