@@ -300,6 +300,15 @@ const styles = StyleSheet.create({
     right: 30,
     bottom: 30,
   },
+  TouchableOpacityStyleTwo: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 30,
+    bottom: 90,
+  },
   photoButton: {
     alignSelf: 'flex-start',
     width: 50,

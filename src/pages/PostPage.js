@@ -7,6 +7,7 @@ import { Header, Divider, Icon, Button} from 'react-native-elements';
 import CommunityHeader from './PageHeader';
 import {SingleImage} from 'react-native-zoom-lightbox';
 import addIcon from './components/addpost.png';
+import vraIcon from './components/vraIcon.png';
 
 export default class PostPage extends React.Component {
 
@@ -14,6 +15,7 @@ export default class PostPage extends React.Component {
     super(props)
     this.state = {
       items: null,
+      save: null,
       isLoaded: false,
    }
   }
@@ -25,8 +27,21 @@ export default class PostPage extends React.Component {
       const userItem = snapshot.val();
       let items = Object.values(userItem);
       self.setState({ items: items });
-      self.setState({isLoaded: true});
     });
+
+
+    var my_uid = firebase.auth().currentUser.uid;
+
+
+    firebase.database().ref('users/' + my_uid).once('value', function (snapshot) {
+      const userItem = snapshot.val();
+      let save = Object.values(userItem);
+      self.setState({ save: save });
+      self.setState({isLoaded: true});
+
+    });
+
+
 
 }
 
@@ -64,9 +79,14 @@ clickHandler = () => {
 
 };
 
+clickHandlerTwo = () => {
+  this.props.navigation.navigate('Chat Bot')
+
+};
+
 
   render() {
-    const { isLoaded, items} = this.state;
+    const { isLoaded, items, save} = this.state;
 
     return (
       isLoaded ?
@@ -152,8 +172,24 @@ clickHandler = () => {
 
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={this.clickHandler}
+          onPress={this.clickHandlerTwo}
           style={styles.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={vraIcon}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
+
+        {save[3] == "staff" &&
+
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={this.clickHandler}
+          style={styles.TouchableOpacityStyleTwo}>
           <Image
             //We are making FAB using TouchableOpacity with an image
             //We are using online image here
@@ -163,7 +199,7 @@ clickHandler = () => {
             style={styles.FloatingButtonStyle}
           />
         </TouchableOpacity>
-      
+      }
       </View>
     </View>
 

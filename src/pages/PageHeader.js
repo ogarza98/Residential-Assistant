@@ -56,6 +56,8 @@ function PageHeader({navigation, text, rightComponent}) {
         <Header
             leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigation.goBack() }}
             centerComponent={{ text: text, style: { color: '#fff', fontSize: 25, flex: 1, fontWeight: 'bold' } }}
+            rightComponent={{ icon: 'man', color: '#fff', onPress: () => navigation.navigate('Chat Bot') }}
+
         />
     </>
         : AddPost ?
@@ -76,6 +78,8 @@ function PageHeader({navigation, text, rightComponent}) {
         <Header
             leftComponent={{ icon: 'menu', color: '#fff', onPress: () => navigation.toggleDrawer() }}
             centerComponent={{ text: text, style: { color: '#fff', fontSize: 25, flex: 1, fontWeight: 'bold' } }}
+            rightComponent={{ icon: 'help', color: '#fff', onPress: () => navigation.navigate('Chat Bot') }}
+
         />
     </>
         }
