@@ -196,7 +196,7 @@ clickHandlerTwo = () => {
             source={addIcon}
             //You can use you project image Example below
             //source={require('./images/float-add-icon.png')}
-            style={styles.FloatingButtonStyle}
+            style={styles.FloatingButtonPost}
           />
         </TouchableOpacity>
       }

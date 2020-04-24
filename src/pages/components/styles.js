@@ -315,11 +315,17 @@ const styles = StyleSheet.create({
     height: 50,
     //backgroundColor:'black'
   },
-  
+  FloatingButtonPost: {
+    resizeMode: 'contain',
+    width: 60,
+    marginBottom: 10,
+    height: 60,
+    //backgroundColor:'black'
+  },
   FloatingButtonStyle: {
     resizeMode: 'contain',
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
     //backgroundColor:'black'
   }
   });
