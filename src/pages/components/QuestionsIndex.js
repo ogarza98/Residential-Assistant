@@ -34,7 +34,6 @@ function QuestionsIndex({items}) {
     return(
        
         <View style={s.faqs}>
-                
             <FlatList
                 data = {items}
                 renderItem={({item, index}) => (
@@ -77,7 +76,7 @@ function QuestionsIndex({items}) {
                  //</TouchableOpacity>
                 )}
                 enableEmptySections={true}
-          
+                keyExtractor={(item, index) => index.toString()}
             /> 
             
                 
