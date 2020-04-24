@@ -1,4 +1,5 @@
 import React from 'react';
+import chaticon from './components/vraIcon.png';
 import {
   View,
   StatusBar,
@@ -24,7 +25,7 @@ import { dialogflowConfig } from './env';
 const BOT_USER = {
   _id: 2,
   name: 'FAQ Bot',
-  avatar: 'https://i.imgur.com/MQGejDm.png',
+  avatar: chaticon,
 };
 import { Header } from 'react-native-elements';
 import ChatBotHeader from './PageHeader';
