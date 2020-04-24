@@ -11,7 +11,7 @@ function PageHeader({navigation, text, rightComponent}) {
         Welcome = true;
         Community = false;
     }
-    else if (text == 'Check-In Form' || text == 'Check-Out Form' || text == 'Work Order' || text == 'Laundry Status') {
+    else if (text == 'Check-In Form' || text == 'Check-Out Form' || text == 'Work Order' || text == 'Laundry Status'|| text == 'Posted By') {
         Welcome = false;
         Community = false;
         Forms = true;

@@ -62,7 +62,7 @@ componentWillUnmount(){
     return (
       isLoaded ?
       <View style={styles.container}>
-        <ProfileHeader navigation = {this.props.navigation} text = {'Profile'}/>
+        <ProfileHeader navigation = {this.props.navigation} text = {'Posted By'}/>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={styles.profile_title}>{items[2]}</Text>
       <Image
