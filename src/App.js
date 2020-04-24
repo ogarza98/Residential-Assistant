@@ -86,6 +86,7 @@ function Home() {
       <Drawer.Screen name="Resources" component={Resources}/>
       <Drawer.Screen name="FAQ" component={QuestionsPage} />
       <Drawer.Screen name="Forms" component={Forms} />
+      <Drawer.Screen name="Chat Bot" component={ChatBotPage} />
       <Drawer.Screen name="Profile" component={ProfilePage} />
       <Drawer.Screen name="Logout" component={LogoutPage} />
     </Drawer.Navigator>
