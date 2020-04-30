@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       fontSize: 18,
       flexDirection: 'column',
-      fontWeight: 'bold',
       padding: 15,
       paddingRight: 60
     },
@@ -117,12 +116,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     faqButton: {
+      transform: [{ rotate: '270deg' }],
       marginLeft: 9,
       width: 25,
       height: 25,
     },
     faqButtonopen: {
-      transform: [{ rotate: '180deg' }],
       marginLeft: 9,
       width: 25,
       height: 25,

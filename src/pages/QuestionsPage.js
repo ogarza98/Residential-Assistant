@@ -1,9 +1,9 @@
 import * as React from 'react';
 import s from './components/styles'
 import * as firebase from "firebase";
-import { View, ActivityIndicator, Text} from 'react-native';
+import { View,Image, ActivityIndicator, TouchableOpacity, Text} from 'react-native';
 import QuestionsHeader from './PageHeader';
-
+import vraIcon from './components/vraIcon.png';
 import { ScrollView, FlatList } from 'react-native-gesture-handler';
 import QuestionsIndex from './components/QuestionsIndex';
 import { SearchBar } from 'react-native-elements';
@@ -30,7 +30,10 @@ export default class QuestionsPage extends React.Component {
         );
     })}
     
+    clickHandlerTwo = () => {
+      this.props.navigation.navigate('Chat Bot')
     
+    };
 
   
     
@@ -59,6 +62,19 @@ export default class QuestionsPage extends React.Component {
               items = {this.state.items}
               />
           </ScrollView>
+          <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={this.clickHandlerTwo}
+          style={s.TouchableOpacityStyle}>
+          <Image
+            //We are making FAB using TouchableOpacity with an image
+            //We are using online image here
+            source={vraIcon}
+            //You can use you project image Example below
+            //source={require('./images/float-add-icon.png')}
+            style={s.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
        </View>   
     )
   }
