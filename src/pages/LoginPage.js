@@ -1,6 +1,6 @@
 // Login.js
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native'
 import * as firebase from "firebase"
 import styles from './components/styles';
 import { Header, Icon} from 'react-native-elements';
@@ -22,7 +22,7 @@ export default class LoginPage extends React.Component {
              .signInWithEmailAndPassword(email, password)
              .then(() => this.props.navigation.navigate('Home', { screen: 'Community Wall' }));
     } catch (error) {
-          console.log(error.toString(error));
+          Alert.Alert('Please Try Again');
         }
       };
       render() {
