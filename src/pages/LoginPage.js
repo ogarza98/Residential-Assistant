@@ -20,7 +20,10 @@ export default class LoginPage extends React.Component {
           firebase
              .auth()
              .signInWithEmailAndPassword(email, password)
-             .then(() => this.props.navigation.navigate('Home', { screen: 'Community Wall' }));
+             .then(() => this.props.navigation.navigate('Home', { screen: 'Community Wall' })) 
+             .catch(error => {
+              alert("Incorrect Login", error)
+            });
     } catch (error) {
           console.log(error.toString(error));
         }
