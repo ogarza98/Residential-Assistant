@@ -33,7 +33,7 @@ export default class LoginPage extends React.Component {
             <View style={styles.login_container}>
 
             <Text style={styles.loginTitle}> UTSA's Residential Assistant</Text>
-                <Text style={styles.loginText}>Email</Text>
+                <Text style={styles.loginText}>   Email</Text>
                 <TextInput
                   style={styles.loginTextInput}
                   autoCapitalize="none"
@@ -41,7 +41,7 @@ export default class LoginPage extends React.Component {
                   onChangeText={email => this.setState({ email })}
                 />
         
-                <Text style={styles.loginText}>Password</Text>
+                <Text style={styles.loginText}>   Password</Text>
                 <TextInput
                 style={styles.loginTextInput}
                   secureTextEntry={true}

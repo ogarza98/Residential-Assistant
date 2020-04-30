@@ -61,7 +61,7 @@ import { Header } from 'react-native-elements';
          console.log('num pages', filepath.numberOfPages)
 
             MailComposer.composeAsync({
-                recipients:["djram2898@outlook.com"],
+                recipients:["cpe.team12@gmail.com"],
                 subject:"Housing Check-In Form",
                 attachments: [filepath.uri],
             })

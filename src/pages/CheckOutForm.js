@@ -97,7 +97,7 @@ export default class CheckOutForm extends React.Component {
          console.log('num pages', filepath.numberOfPages)
 
             MailComposer.composeAsync({
-                recipients:["djram2898@outlook.com"],
+                recipients:["cpe.team12@gmail.com"],
                 subject:"Housing Check-Out Form",
                 attachments: [filepath.uri],
             })
@@ -181,7 +181,7 @@ export default class CheckOutForm extends React.Component {
     UIManager.measure(currentlyFocusedField, (originX, originY, width, height, pageX, pageY) => {
       const fieldHeight = height;
       const fieldTop = pageY;
-      const gap = (windowHeight - keyboardHeight) - (fieldTop + fieldHeight);
+      const gap = (windowHeight - (keyboardHeight+64)) - (fieldTop + fieldHeight);
       if (gap >= 0) {
         return;
       }
